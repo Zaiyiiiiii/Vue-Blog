@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import navi from 'components/Navi'
 export default {
   name: 'app'
 }
