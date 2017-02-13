@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import navi from 'components/Navi'
 export default {
   name: 'app'
 }
