@@ -1,0 +1,47 @@
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.navi-list{
+    width: 100%;
+    list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-align: center;
+        align-items: center;        
+    font-family:'JuzhenFang8dc9cf1295259';
+    font-size: 28px;
+}
+.navi-list a{
+    text-decoration: none;
+}
+.navi-list a:active,.navi-list a:visited{
+    color: #000;
+}
+.navi-item{
+}
+
+.site-title[data-v-58c115cf]{
+  font-family: 'Droid Serif', serif;
+}
+ul[data-v-58c115cf] {
+  list-style-type: none;
+  padding: 0;
+}
+li[data-v-58c115cf] {
+  display: inline-block;
+  margin: 0 10px;
+}
+a[data-v-58c115cf] {
+  color: #42b983;
+}
+
+/*# sourceMappingURL=app.676d45d879c5a3e14ceb8e56268d5195.css.map*/

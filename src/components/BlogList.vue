@@ -1,0 +1,11 @@
+<template>
+    <div>文章列表
+        <ul>
+            <li>博客标题</li>
+            <li>博客标题</li>
+            <li>博客标题</li>
+            <li>博客标题</li>
+            <li>博客标题</li>
+        </ul>
+    </div>
+</template>
