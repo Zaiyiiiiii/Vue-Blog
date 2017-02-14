@@ -3,7 +3,10 @@
         <div class="body-background" :style="{backgroundImage:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
             <li :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
-            <li @click="mouseOverNaviItem('out',item,$event)" @mouseout="mouseOverNaviItem('out',item,$event)" @mouseover="mouseOverNaviItem('in',item,$event)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
+            <li @click="mouseOverNaviItem('out',item,$event)" @mouseout="mouseOverNaviItem('out',item,$event)" @mouseover="mouseOverNaviItem('in',item,$event)" v-for="item in items" class="navi-item">
+                <router-link v-if="!currentRouter(item.link)" :to="item.link">{{item.name}}</router-link>
+                <span v-else class="route-active">{{item.name}}</span>
+            </li>
         </ul>
         <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a717f629d815f80ae47d.css' rel='stylesheet' type='text/css' />
     </div>
@@ -55,6 +58,14 @@
     .navi-is-bar{
         font-size: 24px;
     }
+    .navi-is-bar a{
+        border-bottom: 3px solid #fff;
+        transition: color 0.4s;
+    }
+    .navi-is-bar a:hover{
+        color:#f20c00;
+        border-bottom: 3px solid #f20c00;
+    }
     .navi-is-menu{
         color:white!important;
         top: 35%;
@@ -62,6 +73,7 @@
     }
     .route-active{
         color:#f20c00!important;
+        cursor: default;
     }
     .hide-return{
         width:0;
@@ -104,7 +116,7 @@
             return {                
                 showBackground:false,
                 backgroundImageProp:"",
-                naviColor:"red"
+                naviColor:"rgba(255,0,0,0.8)"
             }
         },
         computed:{
@@ -125,14 +137,14 @@
                     }
                     else{
                         this.showBackground=false
-                        this.naviColor="red"
+                        this.naviColor="rgba(255,0,0,0.8)"
                         document.querySelector(".site-title").style.color="currentcolor"
                         event.target.style.color=""
                     }
                 }
                 else{
                     this.showBackground=false
-                    this.naviColor="red"
+                    this.naviColor="rgba(255,0,0,0.8)"
                     document.querySelector(".site-title").style.color="currentcolor"
                     event.target.style.color=""
                 }

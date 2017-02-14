@@ -2,9 +2,11 @@
   <div class="main">
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    <div class="component-container">
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </div>
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
 </template>
 
@@ -43,13 +45,9 @@
     top:0;
     padding-right: 0.5em;
   }
-  .site-title-main{
-    font-size: 4em;
-    top:15%;
-  }
 
   @media (max-width: 500px){
-    .site-title{
+    .site-title-main{
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -59,6 +57,24 @@
       align-items: center;
     }
   }
+  .component-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: -1;
+  }
+  .component-container>*{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .site-title-main{
+    font-size: 4em;
+    top:15%;
+  }
+
 
   .fade-enter-active,
   .fade-leave-active {
