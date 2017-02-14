@@ -1,22 +1,41 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{'apploaded':loaded}">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data(){
+    return{
+      loaded:false
+    }
+  },
+  mounted(){
+    window.onload=()=>{this.loaded=true}
+  }
 }
 </script>
 
 <style>
-#app {
+body,html{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  transition: opacity 0.8s linear;
+}
+#app {  
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  filter: blur(8px);    
+  transition: filter 1.6s linear;
+}
+.apploaded{
+  filter: none!important;
 }
 </style>

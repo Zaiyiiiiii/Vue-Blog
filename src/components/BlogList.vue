@@ -9,3 +9,8 @@
         </ul>
     </div>
 </template>
+<style>
+    ul{
+        padding: 0;
+    }
+</style>
