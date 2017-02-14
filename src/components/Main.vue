@@ -18,8 +18,8 @@
     data() {
       return {
         naviData: [
-          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)', link: '/blog' },
-          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)', link: '/us'}
+          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',hoverColor:"orange",textColor:"#A64B00", link: '/blog' },
+          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',hoverColor:"brown",textColor:"#FFB140", link: '/us'}
         ],
         msg: 'Wang & Sha'
       }
@@ -53,6 +53,10 @@
       display: flex;
       flex-direction: column;
       padding: 0;
+      margin: 0;
+    }
+    .main{
+      align-items: center;
     }
   }
 

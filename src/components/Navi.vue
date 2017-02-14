@@ -1,9 +1,9 @@
 <template>
-    <div class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
+    <div :style="{backgroundColor:$route.path=='/'?naviColor:'#fff'}" class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
         <div class="body-background" :style="{backgroundImage:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
             <li :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
-            <li @mouseout="mouseOverNaviItem('out',item)" @mouseover="mouseOverNaviItem('in',item)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
+            <li @click="mouseOverNaviItem('out',item,$event)" @mouseout="mouseOverNaviItem('out',item,$event)" @mouseover="mouseOverNaviItem('in',item,$event)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
         </ul>
         <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a717f629d815f80ae47d.css' rel='stylesheet' type='text/css' />
     </div>
@@ -26,14 +26,7 @@
     .background-show{
         opacity: 1.0;
     }
-    @media (max-width: 500px){
-        .background-show{
-            display: none;
-        }
-        .site-title{
-            color:currentColor!important;
-        }
-    }
+
     .navi{
         width: 100%;     
         position: relative;
@@ -63,9 +56,8 @@
         font-size: 24px;
     }
     .navi-is-menu{
-        color:white;
+        color:white!important;
         top: 35%;
-        background-color: red;
         font-size: 36px;
     }
     .route-active{
@@ -77,6 +69,20 @@
         flex:none;
         opacity: 0;
         transform: translateX(-100px)
+    }
+    @media (max-width: 500px){
+        .background-show{
+            display: none;
+        }
+        .site-title{
+            color:currentColor!important;
+        }
+        .navi{
+            line-height: 14px;
+        }
+        .navi-item{
+            font-size: 24px;
+        }
     }
 </style>
 <script>
@@ -97,32 +103,38 @@
         data(){
             return {                
                 showBackground:false,
-                backgroundImageProp:""
+                backgroundImageProp:"",
+                naviColor:"red"
             }
         },
         computed:{
         },
         methods:{            
             currentRouter(routename){
-                console.log(this.$route.path==routename)
                 return this.$route.path==routename&&this.$route.path!='/'
             },
-            mouseOverNaviItem(method,item){
+            mouseOverNaviItem(method,item,event){
                 if(this.$route.path=='/'){
                     if(method=='in'){
                         this.backgroundImageProp=item.hoverBackground
-                        console.log(this.backgroundImageProp)
                         this.showBackground=true
                         document.querySelector(".site-title").style.color="rgba(255,250,255,0.85)"
+                        this.naviColor=item.hoverColor
+                        event.target.style.color=item.textColor
+                        console.log(event.target.style)
                     }
                     else{
                         this.showBackground=false
+                        this.naviColor="red"
                         document.querySelector(".site-title").style.color="currentcolor"
+                        event.target.style.color="#fff"
                     }
                 }
                 else{
                     this.showBackground=false
+                    this.naviColor="red"
                     document.querySelector(".site-title").style.color="currentcolor"
+                    event.target.style.color="currentcolor"
                 }
             }
         }
