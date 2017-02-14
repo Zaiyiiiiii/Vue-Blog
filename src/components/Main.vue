@@ -18,7 +18,6 @@
     data() {
       return {
         naviData: [
-          { name: '首页', hoverBackground: '#fff', link: '/' },
           { name: '博文', hoverBackground: '#fff url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)', link: '/blog' },
           { name: '我们', hoverBackground: '#fff url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)', link: '/us'}
         ],

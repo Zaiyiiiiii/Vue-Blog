@@ -1,0 +1,130 @@
+
+body,html{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  transition: opacity 0.8s linear;
+}
+#app {  
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  filter: blur(8px);    
+  transition: filter 1.6s linear;
+}
+.apploaded{
+  filter: none!important;
+}
+
+.main[data-v-58c115cf] {
+  height: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+.site-title[data-v-58c115cf] {
+  font-family: 'Droid Serif', serif;
+  transition: all 1s;
+  position: relative;
+  top:0;
+  padding-right: 0.5em;
+}
+.site-title-main[data-v-58c115cf]{
+  font-size: 4em;
+  top:15%;
+}
+.fade-enter-active[data-v-58c115cf],
+.fade-leave-active[data-v-58c115cf] {
+  transition: opacity 0.5s
+}
+.fade-enter[data-v-58c115cf],
+.fade-leave-active[data-v-58c115cf] {
+  opacity: 0
+}
+ul[data-v-58c115cf] {
+  list-style-type: none;
+  padding: 0;
+}
+li[data-v-58c115cf] {
+  display: inline-block;
+  margin: 0 10px;
+}
+a[data-v-58c115cf] {
+  color: #42b983;
+}
+
+body{
+    transition: background 0.5s;
+}
+.body-background{
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.2s linear,background 0.2s;
+}
+.background-show{
+    opacity: 1.0;
+}
+.navi{
+    width: 100%;     
+    position: relative;
+    transition: all 1s;
+    top:0;
+}
+.navi-list{
+    width: 100%;
+    list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-align: center;
+        align-items: center;        
+    font-family:'JuzhenFang8dc9dfc505259';
+}
+.navi-list a{
+    text-decoration: none;
+}
+.navi-list a,.navi-list a:active,.navi-list a:visited{
+    color: currentColor;
+}
+.navi-item{
+    -ms-flex:auto;
+        flex:auto;
+    transition: flex 1s,opacity 1s;
+    transition: flex 1s,opacity 1s,-ms-flex 1s;
+}
+.navi-is-bar{
+    font-size: 24px;
+}
+.navi-is-menu{
+    color:white;
+    top: 35%;
+    background-color: red;
+    font-size: 36px;
+}
+.route-active{
+    color:#f20c00!important;
+}
+.hide-return{
+    width:0;
+    height: 0;
+    -ms-flex:none;
+        flex:none;
+    opacity: 0;
+}
+
+ul{
+    padding: 0;
+}
+
+/*# sourceMappingURL=app.8afba7dc17ee1ff9ea4d7778f0a98e92.css.map*/

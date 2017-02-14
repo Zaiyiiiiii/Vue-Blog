@@ -37,4 +37,5 @@ webpack(webpackConfig, function (err, stats) {
     '  Tip: built files are meant to be served over an HTTP server.\n' +
     '  Opening index.html over file:// won\'t work.\n'
   ))
+  shell.cp('-R','dist/*','docs')//复制生成到DOCS文件夹
 })

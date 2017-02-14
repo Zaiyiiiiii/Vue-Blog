@@ -2,9 +2,10 @@
     <div class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
         <div class="body-background" :style="{background:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
+            <li :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
             <li @mouseout="mouseOverNaviItem('out',item)" @mousemove="mouseOverNaviItem('in',item)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
         </ul>
-        <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a6d3f629d815f80ae47c.css' rel='stylesheet' type='text/css' />
+        <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a717f629d815f80ae47d.css' rel='stylesheet' type='text/css' />
     </div>
 </template>
 <style>
@@ -20,7 +21,7 @@
         width: 100%;
         background-size: cover;
         opacity: 0;
-        transition: opacity 0.2s linear;
+        transition: opacity 0.2s linear,background 0.2s;
     }
     .background-show{
         opacity: 1.0;
@@ -37,7 +38,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;        
-        font-family:'JuzhenFang8dc9cf1295259';
+        font-family:'JuzhenFang8dc9dfc505259';
     }
     .navi-list a{
         text-decoration: none;
@@ -46,7 +47,8 @@
         color: currentColor;
     }
     .navi-item{
-
+        flex:auto;
+        transition: flex 1s,opacity 1s;
     }
     .navi-is-bar{
         font-size: 24px;
@@ -59,6 +61,12 @@
     }
     .route-active{
         color:#f20c00!important;
+    }
+    .hide-return{
+        width:0;
+        height: 0;
+        flex:none;
+        opacity: 0;
     }
 </style>
 <script>
@@ -95,7 +103,7 @@
                         this.backgroundImageProp=item.hoverBackground
                         console.log(this.backgroundImageProp)
                         this.showBackground=true
-                        document.querySelector(".site-title").style.color="rgba(255,250,255,0.8)"
+                        document.querySelector(".site-title").style.color="rgba(255,250,255,0.85)"
                     }
                     else{
                         this.showBackground=false
