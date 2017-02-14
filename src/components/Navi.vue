@@ -127,14 +127,14 @@
                         this.showBackground=false
                         this.naviColor="red"
                         document.querySelector(".site-title").style.color="currentcolor"
-                        event.target.style.color="#fff"
+                        event.target.style.color=""
                     }
                 }
                 else{
                     this.showBackground=false
                     this.naviColor="red"
                     document.querySelector(".site-title").style.color="currentcolor"
-                    event.target.style.color="currentcolor"
+                    event.target.style.color=""
                 }
             }
         }
