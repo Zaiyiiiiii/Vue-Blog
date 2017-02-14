@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}">{{ msg }}</h1>
+    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <transition name="fade">
       <router-view></router-view>
@@ -18,8 +18,8 @@
     data() {
       return {
         naviData: [
-          { name: '博文', hoverBackground: '#fff url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)', link: '/blog' },
-          { name: '我们', hoverBackground: '#fff url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)', link: '/us'}
+          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)', link: '/blog' },
+          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)', link: '/us'}
         ],
         msg: 'Wang & Sha'
       }
@@ -29,13 +29,13 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   .main {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
-  
+
   .site-title {
     font-family: 'Droid Serif', serif;
     transition: all 1s;
@@ -47,6 +47,15 @@
     font-size: 4em;
     top:15%;
   }
+
+  @media (max-width: 500px){
+    .site-title{
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+  }
+
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.5s

@@ -1,9 +1,9 @@
 <template>
     <div class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
-        <div class="body-background" :style="{background:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
+        <div class="body-background" :style="{backgroundImage:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
             <li :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
-            <li @mouseout="mouseOverNaviItem('out',item)" @mousemove="mouseOverNaviItem('in',item)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
+            <li @mouseout="mouseOverNaviItem('out',item)" @mouseover="mouseOverNaviItem('in',item)" v-for="item in items" class="navi-item"><router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">{{item.name}}</router-link></li>
         </ul>
         <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a717f629d815f80ae47d.css' rel='stylesheet' type='text/css' />
     </div>
@@ -26,6 +26,14 @@
     .background-show{
         opacity: 1.0;
     }
+    @media (max-width: 500px){
+        .background-show{
+            display: none;
+        }
+        .site-title{
+            color:currentColor!important;
+        }
+    }
     .navi{
         width: 100%;     
         position: relative;
@@ -47,6 +55,7 @@
         color: currentColor;
     }
     .navi-item{
+        width: auto;
         flex:auto;
         transition: flex 1s,opacity 1s;
     }
@@ -64,9 +73,10 @@
     }
     .hide-return{
         width:0;
-        height: 0;
+        height:0;
         flex:none;
         opacity: 0;
+        transform: translateX(-100px)
     }
 </style>
 <script>
