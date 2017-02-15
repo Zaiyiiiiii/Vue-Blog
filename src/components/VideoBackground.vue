@@ -1,6 +1,6 @@
 <template>
     <div class="videobg-container">
-        <video loop autoplay id="Video" src="static/2017-01-20_GentooPenguinVideo_1080_HD.mp4" poster="" @canplay="" autobuffer="true"></video>
+        <video loop autoplay id="Video" :src="'static/Video/Animal/'+todayVideoSrc+'.mp4'" poster="" @canplay="" autobuffer="true"></video>
     </div>
 </template>
 <style>
@@ -27,6 +27,20 @@
 </style>
 <script>
     export default {
+        computed:{
+            todayVideoSrc(){
+                var date = new Date()
+                var videoId = date.getDate()<=18?date.getDate():(date.getDate()-17)
+                var result=""
+                if(videoId<10){
+                    result = "0"+videoId.toString()
+                }
+                else{
+                    result = videoId.toString()
+                }
+                return result;
+            }
+        }
     }
 
 </script>

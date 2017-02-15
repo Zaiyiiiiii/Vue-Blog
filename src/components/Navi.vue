@@ -75,7 +75,7 @@
     }
     .navi-is-menu{
         color:white!important;
-        top: 35%;
+        top: 45%;
         font-size: 36px;
     }
     .hide-return{
@@ -119,7 +119,7 @@
             return {                
                 showBackground:false,
                 backgroundImageProp:"",
-                naviColor:"rgba(255,0,0,0.8)"
+                naviColor:"rgba(255,0,0,0.6)"
             }
         },
         computed:{
@@ -140,14 +140,14 @@
                     }
                     else{
                         this.showBackground=false
-                        this.naviColor="rgba(255,0,0,0.8)"
+                        this.naviColor="rgba(255,0,0,0.6)"
                         document.querySelector(".site-title").style.color="currentcolor"
                         event.target.style.color=""
                     }
                 }
                 else{
                     this.showBackground=false
-                    this.naviColor="rgba(255,0,0,0.8)"
+                    this.naviColor="rgba(255,0,0,0.6)"
                     document.querySelector(".site-title").style.color="currentcolor"
                     event.target.style.color=""
                 }
