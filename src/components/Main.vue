@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <transition name="fade">
-      <videoBackground v-if="$route.path=='/'"></videoBackground>
+      <videoBackground v-show="$route.path=='/'"></videoBackground>
     </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
