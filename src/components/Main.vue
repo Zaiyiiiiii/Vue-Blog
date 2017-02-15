@@ -1,5 +1,8 @@
 <template>
   <div class="main">
+    <transition name="fade">
+      <videoBackground v-if="$route.path=='/'"></videoBackground>
+    </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <div class="component-container">
@@ -12,10 +15,11 @@
 
 <script>
   import navi from 'components/Navi'
+  import videoBackground from 'components/VideoBackground'
   export default {
     name: 'Main',
     components: {
-      navi
+      navi,videoBackground
     },
     data() {
       return {
@@ -71,8 +75,10 @@
     width: 100%;
   }
   .site-title-main{
+    color: rgba(0, 0, 0, 0.8);
     font-size: 4em;
     top:15%;
+    text-shadow: 0px 0px 6px rgba(212, 166,50,0.6 );
   }
 
 

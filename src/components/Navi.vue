@@ -56,24 +56,27 @@
         transition: flex 1s,opacity 1s;
     }
     .navi-is-bar{
+        background: transparent!important;
         font-size: 24px;
     }
-    .navi-is-bar a{
-        border-bottom: 3px solid #fff;
-        transition: color 0.4s;
+    .navi-is-bar a,.route-active{
+        border-bottom: 3px solid transparent;
+        border-radius: 3px;
+        transition: color 0.4s,border 0.4s;
     }
     .navi-is-bar a:hover{
         color:#f20c00;
         border-bottom: 3px solid #f20c00;
     }
+    .route-active{
+        color:#f20c00!important;
+        cursor: default;
+        border-bottom-color:#f20c00;
+    }
     .navi-is-menu{
         color:white!important;
         top: 35%;
         font-size: 36px;
-    }
-    .route-active{
-        color:#f20c00!important;
-        cursor: default;
     }
     .hide-return{
         width:0;
