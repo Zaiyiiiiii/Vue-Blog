@@ -37,7 +37,7 @@
     .loginbox-background{
         position: fixed;
         z-index: 2;
-        background: radial-gradient(rgba(0,0,0,0),rgba(0,0,0,0.95));
+        background: radial-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.95));
         left: 0;
         top: 0;
         width: 100%;
@@ -45,6 +45,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        animation: fadeinbox 1s;
     }
     .loginbox-button{
         margin-top: 75px;
@@ -90,7 +91,7 @@
         height: 460px;
         padding-top: 150px;
         border-radius: 160px 0;
-        transition: border-radius 1s;
+        transition: border-radius 1s,transform 1s;
     }
     .loginbox-half .loginbox-button{
         margin-left: -200px;
@@ -104,6 +105,7 @@
     .loginbox-half:hover{
         width: 400px;
         border-radius: 0;
+        transform: scale(1.1)
     }
     @keyframes fadeinbox{
         from{
