@@ -16,11 +16,11 @@ export default new Router({
       name: 'Main',
       component: Main,
       children: [
-        {
+        /*{
           path: '/login',
           name: 'login',
           component: Login
-        },
+        },*/
         {
           path: '/p/:id',
           name: 'Article',
