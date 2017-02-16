@@ -1,6 +1,9 @@
 <template>
   <div class="main">
     <transition name="fade">
+      <UglyLoginBox></UglyLoginBox>
+    </transition>
+    <transition name="fade">
       <videoBackground v-show="$route.path=='/'"></videoBackground>
     </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
@@ -9,17 +12,18 @@
       <transition name="fade">
         <router-view></router-view>
       </transition>
-    </div>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    </div>    
 </template>
 
 <script>
   import navi from 'components/Navi'
   import videoBackground from 'components/VideoBackground'
+  import UglyLoginBox from 'components/UglyLoginBox'
   export default {
     name: 'Main',
     components: {
-      navi,videoBackground
+      navi,videoBackground,UglyLoginBox
     },
     data() {
       return {
@@ -41,7 +45,7 @@
     display: flex;
     flex-direction: column;
   }
-
+  
   .site-title {
     font-family: 'Droid Serif', serif;
     transition: all 1s;
@@ -75,7 +79,7 @@
     width: 100%;
   }
   .site-title-main{
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(223,145,145,0.4);
     font-size: 4em;
     top:15%;
     text-shadow: 0px 0px 6px rgba(212, 166,50,0.6 );

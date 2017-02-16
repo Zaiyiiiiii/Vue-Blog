@@ -23,6 +23,7 @@
         width: auto; 
         height: auto;
         overflow: hidden;
+        filter:sepia(0.8)
     }
 </style>
 <script>

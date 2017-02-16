@@ -141,14 +141,14 @@
                     else{
                         this.showBackground=false
                         this.naviColor="rgba(255,0,0,0.6)"
-                        document.querySelector(".site-title").style.color="currentcolor"
+                        document.querySelector(".site-title").style.color="rgba(223,145,145,0.4)"
                         event.target.style.color=""
                     }
                 }
                 else{
                     this.showBackground=false
                     this.naviColor="rgba(255,0,0,0.6)"
-                    document.querySelector(".site-title").style.color="currentcolor"
+                    document.querySelector(".site-title").style.color="rgba(223,145,145,0.4)"
                     event.target.style.color=""
                 }
             }

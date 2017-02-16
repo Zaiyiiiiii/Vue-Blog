@@ -31,7 +31,6 @@ body,html{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   filter: blur(8px);    
   transition: filter 1.6s linear;
 }
