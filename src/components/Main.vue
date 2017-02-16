@@ -5,7 +5,7 @@
     </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}">
       <span v-for="word in msg.split(' ')">{{' '+word+' '}}</span>
-      <button @click="loginIn(isClicked)" class="login-link">登陆</button>
+      <button @click="loginIn()" class="login-link">登陆</button>
     </h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <div class="component-container">
@@ -14,8 +14,8 @@
       </transition>
     </div>
     <login v-if="isShowLoginBox"></login>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
   </div>
-  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
 </template>
 
 <script>
@@ -51,9 +51,8 @@
       }
     },
     methods: {
-     loginIn(isClicked){
-        this.isShowLoginBox = isClicked;
-        return !isClicked
+     loginIn(){
+        this.isShowLoginBox = !this.isShowLoginBox
      },
     }
   }
