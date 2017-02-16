@@ -1,9 +1,9 @@
 <template>
     <div>
         <div v-if="showLoginBox" class="loginbox-background" @click="showLoginBox=false">
-            <div class="loginbox-round" @click.stop>
-                <input type="text" placeholder="输入用户名">
-                <input type="password" placeholder="输入暗号">
+            <div class="loginbox-round loginbox-square loginbox-half" @click.stop>
+                <input type="text" placeholder="输入用户名，">
+                <input type="password" placeholder="输入暗号。">
                 <div class="loginbox-button">登录</div>
             </div>
         </div>
@@ -54,7 +54,7 @@
         cursor: pointer;
     }
     .loginbox-round>input{
-        width: 250px;
+        width: 280px;
         outline-style: none;
         border: none;
         border-bottom: 5px solid rgba(50,50,50,0.3);
@@ -81,7 +81,30 @@
     .loginbox-round>input:focus::-webkit-input-placeholder{
         color:rgba(50, 50, 50, 0.6);   
     }
-
+    .loginbox-square{
+        width: 400px;
+        border-radius: 100px;
+    }
+    .loginbox-half{
+        width: 400px;
+        height: 460px;
+        padding-top: 150px;
+        border-radius: 160px 0;
+        transition: border-radius 1s;
+    }
+    .loginbox-half .loginbox-button{
+        margin-left: -200px;
+        margin-top:75px;
+    }
+    .loginbox-half.loginbox-round{
+        background-image: none;
+        background:rgba(255,255,255,0.9);
+        box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.5),inset 0px 0px 60px 35px rgba(255, 255, 255, 1);
+    }
+    .loginbox-half:hover{
+        width: 400px;
+        border-radius: 0;
+    }
     @keyframes fadeinbox{
         from{
             opacity: 0
