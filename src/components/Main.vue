@@ -3,34 +3,68 @@
     <transition name="fade">
       <videoBackground v-show="$route.path=='/'"></videoBackground>
     </transition>
-    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
+    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}">
+      <span v-for="word in msg.split(' ')">{{' '+word+' '}}</span>
+      <button @click="loginIn(isClicked)" class="login-link">登陆</button>
+    </h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <div class="component-container">
       <transition name="fade">
         <router-view></router-view>
       </transition>
     </div>
-    <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+    <login v-if="isShowLoginBox"></login>
+  </div>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
 </template>
 
 <script>
   import navi from 'components/Navi'
   import videoBackground from 'components/VideoBackground'
+  import login from 'components/Login'
+
   export default {
     name: 'Main',
     components: {
-      navi,videoBackground
+      navi,
+      videoBackground,
+      login
     },
     data() {
       return {
+        isShowLoginBox: false,
         naviData: [
-          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',hoverColor:"orange",textColor:"#A64B00", link: '/blog' },
-          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',hoverColor:"brown",textColor:"#FFB140", link: '/us'}
-        ],
+          {
+           name: '博文',
+           hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',
+           hoverColor:"orange",
+           textColor:"#A64B00",
+           link: '/blog'
+          },{
+          name: '我们',
+          hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',
+          hoverColor:"brown",
+          textColor:"#FFB140",
+          link: '/us'
+          }],
         msg: 'Wang & Sha'
       }
+    },
+    methods: {
+     loginIn(isClicked){
+        this.isShowLoginBox = isClicked;
+        return !isClicked
+     },
     }
   }
+
+
+
+
+
+
+
+
 
 </script>
 
@@ -49,6 +83,8 @@
     top:0;
     padding-right: 0.5em;
   }
+
+  .login-link {}
 
   @media (max-width: 500px){
     .site-title-main{
@@ -86,23 +122,31 @@
   .fade-leave-active {
     transition: opacity 0.5s
   }
-  
+
   .fade-enter,
   .fade-leave-active {
     opacity: 0
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   li {
     display: inline-block;
     margin: 0 10px;
   }
-  
+
   a {
     color: #42b983;
   }
+
+
+
+
+
+
+
+
 </style>
