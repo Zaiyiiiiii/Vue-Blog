@@ -5,7 +5,7 @@
     </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}">
       <span v-for="word in msg.split(' ')">{{' '+word+' '}}</span>
-      <button @click="loginIn()" class="login-link">登陆</button>
+      <a @click="loginIn()" v-if="!isShowLoginBox" class="login-link">登陆</a>
     </h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <div class="component-container">
@@ -13,7 +13,9 @@
         <router-view></router-view>
       </transition>
     </div>
-    <login v-if="isShowLoginBox"></login>
+    <transition name="fade">
+      <login v-if="isShowLoginBox" @hidden="hiddenLoginBox"></login>
+    </transition>
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
   </div>
 </template>
@@ -52,18 +54,14 @@
     },
     methods: {
      loginIn(){
-        this.isShowLoginBox = !this.isShowLoginBox
+        this.isShowLoginBox = true;
      },
+     hiddenLoginBox(msg){
+        this.isShowLoginBox = msg;
+        console.log("isShow:o%", msg, this.isShowLoginBox)
+     }
     }
   }
-
-
-
-
-
-
-
-
 
 </script>
 
@@ -79,11 +77,17 @@
     font-family: 'Droid Serif', serif;
     transition: all 1s;
     position: relative;
-    top:0;
+    top: 0;
     padding-right: 0.5em;
   }
 
-  .login-link {}
+  .login-link {
+     font-size: 16px;
+     color: #fff;
+     position: absolute;
+     bottom: 13px;
+     right: 38%;
+  }
 
   @media (max-width: 500px){
     .site-title-main{
@@ -140,6 +144,7 @@
   a {
     color: #42b983;
   }
+
 
 
 
