@@ -52,8 +52,11 @@
     }
     .navi-item{
         width: auto;
-        flex:auto;
-        transition: flex 1s,opacity 1s;
+        flex:1;
+        transition: flex 1s,opacity 1s,transform 1s;
+        white-space: nowrap;
+        overflow: hidden;
+        line-height: 45px;
     }
     .navi-is-bar{
         background: transparent!important;
@@ -79,11 +82,12 @@
         font-size: 36px;
     }
     .hide-return{
-        width:0;
-        height:0;
-        flex:none;
+        flex:0;
         opacity: 0;
         transform: translateX(-100px)
+    }
+    .hide-return>*{
+        display: none;
     }
     @media (max-width: 500px){
         .background-show{

@@ -80,7 +80,7 @@
         text-indent: 0px;
     }
     .loginbox-round>input:focus::-webkit-input-placeholder{
-        color:rgba(50, 50, 50, 0.6);   
+        color:rgba(50, 50, 50, 0.6); 
     }
     .loginbox-square{
         width: 400px;

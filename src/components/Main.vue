@@ -56,6 +56,7 @@
     top:0;
     color:rgba(20, 10, 20, 0.9);
     padding-right: 0.5em;
+    margin-top: 30px;
   }
 
   @media (max-width: 500px){
