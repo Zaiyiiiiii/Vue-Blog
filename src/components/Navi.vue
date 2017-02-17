@@ -89,9 +89,6 @@
         .background-show{
             display: none;
         }
-        .site-title{
-            color:currentColor!important;
-        }
         .navi{
             line-height: 14px;
         }

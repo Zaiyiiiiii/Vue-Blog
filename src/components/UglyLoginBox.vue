@@ -69,7 +69,7 @@
         font-family:'JuzhenFang8dc9dfc505259',Cambria, Cochin, Georgia, Times, Times New Roman, serif;
         transition: border 0.5s,color 0.5s;
         box-sizing: border-box;
-        text-indent: 15px;
+        text-indent: 20px;
     }
     .loginbox-round>input:focus{
         border-bottom: 5px solid rgba(50,50,50,0.6);     
