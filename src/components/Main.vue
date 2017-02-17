@@ -6,15 +6,16 @@
     <transition name="fade">
       <videoBackground v-show="$route.path=='/'"></videoBackground>
     </transition>
-    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span></h1>
+    <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span>
+    </h1>
     <navi :isBar="$route.path!='/'" :items="naviData"></navi>
     <div class="component-container">
       <transition name="fade">
         <router-view></router-view>
       </transition>
-          <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
     </div>    
-    </div>
+  </div>
 </template>
 
 <script>
@@ -37,6 +38,7 @@
     }
   }
 
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -46,7 +48,7 @@
     display: flex;
     flex-direction: column;
   }
-  
+
   .site-title {
     font-family: 'Droid Serif', serif;
     transition: all 1s;
@@ -91,23 +93,24 @@
   .fade-leave-active {
     transition: opacity 0.5s
   }
-  
+
   .fade-enter,
   .fade-leave-active {
     opacity: 0
   }
-  
+
   ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   li {
     display: inline-block;
     margin: 0 10px;
   }
-  
+
   a {
     color: #42b983;
   }
+
 </style>
