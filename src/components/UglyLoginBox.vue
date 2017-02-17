@@ -78,9 +78,11 @@
     .loginbox-round>input::-webkit-input-placeholder{
         text-align: center;
         text-indent: 0px;
+        transition: font-size 0.4s;
     }
     .loginbox-round>input:focus::-webkit-input-placeholder{
-        color:rgba(50, 50, 50, 0.6); 
+        color:rgba(50, 50, 50, 0.6);
+        font-size: 103%;
     }
     .loginbox-square{
         width: 400px;

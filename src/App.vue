@@ -37,4 +37,7 @@ body,html{
 .apploaded{
   filter: none!important;
 }
+ul{
+  padding: 0;
+}
 </style>
