@@ -51,9 +51,8 @@
         color: currentColor;
     }
     .navi-item{
-        width: auto;
         flex:1;
-        transition: flex 1s,opacity 1s,transform 1s;
+        transition: flex 1s,opacity 1s,transform 1s,margin 1s;
         white-space: nowrap;
         overflow: hidden;
         line-height: 45px;
@@ -83,11 +82,10 @@
     }
     .hide-return{
         flex:0;
+        flex-basis: 0;
         opacity: 0;
-        transform: translateX(-100px)
-    }
-    .hide-return>*{
-        display: none;
+        transform: translateX(-100px);
+        margin: 0;
     }
     @media (max-width: 500px){
         .background-show{
