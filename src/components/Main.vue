@@ -54,6 +54,7 @@
     transition: all 1s;
     position: relative;
     top:0;
+    color:rgba(20, 10, 20, 0.9);
     padding-right: 0.5em;
   }
 
