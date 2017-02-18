@@ -79,11 +79,15 @@
       font-size: 18px;
     }
 
-    .login-box input:focus::-webkit-input-placeholder {
-       display: inline-block;
+    .input-info::-webkit-input-placeholder {
+       position: relative;
+       top: 0;
+    }
+
+    .input-info:focus::-webkit-input-placeholder {
        position: relative;
        top: -26px;
-       -webkit-transition: top 3s ease-out;
+       -webkit-transition: top 0.3s linear;
        color: #fff;
     }
     .margin-bt30 {
@@ -105,6 +109,7 @@
       background-color:rgba(26, 26, 26, 0.8);
       cursor: pointer
     }
+
 
 
 
@@ -136,6 +141,7 @@
           }
         }
     }
+
 
 
 
