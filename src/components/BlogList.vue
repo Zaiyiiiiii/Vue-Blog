@@ -2,11 +2,7 @@
     <div class="blog">
         <div class="blog-sort">
             <ul>
-                <li><router-link to="/bowu">博物论</router-link></li>
-                <li><router-link to="/bowu">闻鸡起舞</router-link></li>
-                <li><router-link to="/bowu">强行扶老太太过马路是不对的</router-link></li>
-                <li><router-link to="/bowu">博物论</router-link></li>
-                <li><router-link to="/bowu">博物论</router-link></li>
+                <li v-for="sort in blogSortData"><router-link :to="'/blog/sort/'+sort.link">{{sort.name}}</router-link></li>
             </ul>
         </div>
         <ul class="blog-title">
@@ -18,7 +14,29 @@
         </ul>
     </div>
 </template>
-<style>
+<script>
+    export default{
+        data(){
+            return {
+                blogSortData:[
+                    {
+                        name:"博物论",
+                        link:"bowu"
+                    },
+                    {
+                        name:"闻鸡起舞",
+                        link:"wenji"
+                    },
+                    {
+                        name:"强行扶老太太过马路是不对的",
+                        link:"qiangxing"
+                    }
+                ]
+            }
+        }
+    }
+</script>
+<style scoped>
     .blog ul{
         margin: 0;
     }
@@ -49,11 +67,6 @@
     .blog-sort>ul>::first-line{
         opacity: 0;
     }
-    .blog-sort>ul>li>a:hover{
-        right: calc(100% - 1em);
-        letter-spacing: 3px;        
-        color:white;
-    }
     .blog-sort>ul>li>a:before{
         transition: all 0.5s;
         background:transparent linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0));
@@ -66,20 +79,12 @@
         width: calc(100% + 0.6em);
         border-radius: 30px;
     }
-    .blog-sort>ul>li>a:hover::before{
-        box-shadow: -5px 5px 6px 3px rgba(230 , 230, 230, 0.8);
-        background:rgba(240, 120, 50, 0.8);
-    }
     .blog-sort>ul>::first-letter{
         transition: all 0.5s;
         color:rgb(66, 185, 131);
         opacity: 1;
     }
-    .blog-sort>ul>:hover::first-letter{
-        color:rgb(242, 12, 0);
-        opacity: 1;
-        text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
-    }
+
     .blog{
         height: 100%;
         display: flex;
@@ -101,5 +106,23 @@
     }
     .blog-title{
         flex:3 0 0px;
+    }    
+    .router-link-active{
+        display: inline-block;
+        line-height: 0.98em;
+    }
+    .blog-sort>ul>:hover::first-letter,.router-link-active::first-letter {
+        color:rgb(242, 12, 0)!important;
+        opacity: 1!important;
+        text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
+    }
+    .blog-sort>ul>li>a:hover::before,.router-link-active::before{
+        box-shadow: -5px 5px 6px 3px rgba(230 , 230, 230, 0.8);
+        background:rgba(240, 120, 50, 0.8)!important;
+    }
+    .blog-sort>ul>li>a:hover,.router-link-active{
+        right: calc(100% - 1em)!important;
+        letter-spacing: 3px!important;        
+        color:white;
     }
 </style>

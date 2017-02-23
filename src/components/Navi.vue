@@ -37,6 +37,7 @@
         position: relative;
         transition: all 1s;
         top:0;
+        box-shadow: 0px 0px 5px 2px #fff;
     }
     .navi-list{
         width: 100%;

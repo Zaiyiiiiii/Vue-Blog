@@ -25,6 +25,11 @@ export default new Router({
           name: '博文',
           component: Bloglist
         },
+                {
+          path: '/blog/sort/:sortname',
+          name: '博文',
+          component: Bloglist
+        },
         {
           path: '/us',
           name: '我们',
