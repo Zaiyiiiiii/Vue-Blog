@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="blog">
         <div class="blog-sort">
             <ul>
@@ -13,7 +14,22 @@
             <li>博客标题</li>
             <li>博客标题</li>
         </ul>
+=======
+  <div class="blog">
+    <div class="blog-sort">
+      <div>
+        <h3>文章分类</h3>
+        <span>javascript</span><span>html</span>
+      </div>
+      <ul class="sort-list">
+        <li v-for="assort in assorts">{{}}</li>
+      </ul>
+>>>>>>> origin/master
     </div>
+    <ul class="blog-title">
+      <li v-for="article in articles"><article-list :data="article"></article-list></li>
+    </ul>
+  </div>
 </template>
 <script>
     export default{
@@ -102,8 +118,10 @@
     .blog-sort{
         box-shadow: -17px 0 10px -8px rgba(220,220,220,0.3) inset;
         display: flex;
+        font-size: 18px;
         flex-direction: column;
         flex:1 0 0px;
+<<<<<<< HEAD
         padding-top: 40px;
         z-index: 0;
         background-color:rgba(254, 254, 254, 0.1);
@@ -111,7 +129,20 @@
         font-family:'JuzhenFang90f7448985259';
         font-size: 24px;
         overflow: hidden;
+=======
+        margin-top: 28px!important;
+        background-color: #EFF3EF;
+        padding: 120px 50px 0;
+        box-sizing: border-box;
+        text-align: left;
+>>>>>>> origin/master
     }
+    .blog-sort li {
+        height: 30px;
+        line-height: 30px;
+        color: rgb(13, 183, 13);
+    }
+
     .blog-title{
         flex:3 0 0px;
     }    
@@ -133,4 +164,20 @@
         letter-spacing: 3px!important;        
         color:white;
     }
+
+
+
+
 </style>
+<script>
+  import article-list from "components/Article"
+
+  export default{
+    data(){
+       return {
+         articles: [{title: "", pubTime: "", author: ""},{title: "", pubTime: "", author: ""}],
+         assorts: [{index: "", children: []}, {index: "", children: []}, {index: "", children: []}]
+       }
+    }
+  }
+</script>
