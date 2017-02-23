@@ -160,7 +160,7 @@
         methods:{            
             currentRouter(routename){
                 console.log(this.$route)
-                return this.$route.matched[1].path==routename&&this.$route.path!='/'
+                return this.$route.path==routename&&this.$route.path!='/'
             },
             mouseOverNaviItem(method,item,event,index){
                 if(this.$route.path=='/'){
