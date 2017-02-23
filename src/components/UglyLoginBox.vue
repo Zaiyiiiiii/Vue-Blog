@@ -15,7 +15,7 @@
         position: fixed;
         top: 25px;
         right: 25px;
-        font-family:'JuzhenFang8dc9dfc505259';
+        font-family:'JuzhenFang90f7448985259';
         font-size: 1.3em;
         color: rgba(255, 255, 255, 0.5);
         cursor: pointer;
@@ -49,7 +49,7 @@
     }
     .loginbox-button{
         margin-top: 75px;
-        font-family:'JuzhenFang8dc9dfc505259';
+        font-family:'JuzhenFang90f7448985259';
         font-size: 36px;
         color: #666;
         cursor: pointer;
@@ -66,7 +66,7 @@
         color:rgba(50, 50, 50, 0.6);
         margin-bottom: 20px;
         text-shadow: 0 0 2px #ccc;
-        font-family:'JuzhenFang8dc9dfc505259',Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        font-family:'JuzhenFang90f7448985259',Cambria, Cochin, Georgia, Times, Times New Roman, serif;
         transition: border 0.5s,color 0.5s;
         box-sizing: border-box;
         text-indent: 20px;

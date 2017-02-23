@@ -34,6 +34,10 @@ body,html{
   filter: blur(8px);    
   transition: filter 1.6s linear;
 }
+#app,.main,body{
+    position: relative;
+    z-index: -5;
+}
 .apploaded{
   filter: none!important;
 }

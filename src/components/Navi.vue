@@ -11,8 +11,7 @@
                 <span v-else class="route-active">{{item.name}}</span>
             </li>
         </ul>
-        <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58a1a717f629d815f80ae47d.css' rel='stylesheet' type='text/css' />
-    </div>
+<link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58aeaac0f629da0f684a15c8.css' rel='stylesheet' type='text/css' />    </div>
 </template>
 <style>
     body{
@@ -45,7 +44,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;        
-        font-family:'JuzhenFang8dc9dfc505259';
+        font-family:'JuzhenFang90f7448985259';
     }
     .navi-list a{
         text-decoration: none;
@@ -86,6 +85,9 @@
         flex:1;
         transition: flex 1s,opacity 1s,transform 1s,margin 1s;
         line-height: 45px;
+    }
+    .navi-item>span,.navi-item>a{
+        padding-bottom: 3px;
     }
     .navi-is-bar{
         background: transparent!important;
