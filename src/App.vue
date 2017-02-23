@@ -13,7 +13,7 @@ export default {
     }
   },
   mounted(){
-    window.onload=()=>{this.loaded=true}
+    //window.onload=()=>{this.loaded=true}
   }
 }
 </script>
