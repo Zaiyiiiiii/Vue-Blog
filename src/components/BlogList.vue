@@ -121,7 +121,6 @@
         font-size: 18px;
         flex-direction: column;
         flex:1 0 0px;
-<<<<<<< HEAD
         padding-top: 40px;
         z-index: 0;
         background-color:rgba(254, 254, 254, 0.1);
@@ -129,13 +128,11 @@
         font-family:'JuzhenFang90f7448985259';
         font-size: 24px;
         overflow: hidden;
-=======
         margin-top: 28px!important;
         background-color: #EFF3EF;
         padding: 120px 50px 0;
         box-sizing: border-box;
         text-align: left;
->>>>>>> origin/master
     }
     .blog-sort li {
         height: 30px;
@@ -170,7 +167,7 @@
 
 </style>
 <script>
-  import article-list from "components/Article"
+  import articleList from "components/Article"
 
   export default{
     data(){
