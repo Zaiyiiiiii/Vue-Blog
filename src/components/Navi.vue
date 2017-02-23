@@ -2,9 +2,12 @@
     <div :style="{backgroundColor:$route.path=='/'?naviColor:'#fff'}" class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
         <div class="body-background" :style="{backgroundImage:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
-            <li :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
-            <li @click="mouseOverNaviItem('out',item,$event)" @mouseout="mouseOverNaviItem('out',item,$event)" @mouseover="mouseOverNaviItem('in',item,$event)" v-for="item in items" class="navi-item">
-                <router-link v-if="!currentRouter(item.link)" :to="item.link">{{item.name}}</router-link>
+            <li style="white-space: nowrap;overflow: hidden;" :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
+            <li @click="mouseOverNaviItem('out',item,$event,index)" @mouseout="mouseOverNaviItem('out',item,$event,index)" @mouseover="mouseOverNaviItem('in',item,$event,index)" v-for="(item,index) in items" class="navi-item">
+                <router-link v-if="!currentRouter(item.link)" :to="item.link">
+                    {{item.name}}
+                    <!--<div class="navi-hovertext" :class="'hover-text-'+index"><span v-for="(char,index) in item.hoverText.split('')" :style="'animation-delay:'+index/2+'s'">{{char}}</span></div>-->
+                </router-link>
                 <span v-else class="route-active">{{item.name}}</span>
             </li>
         </ul>
@@ -50,11 +53,38 @@
     .navi-list a,.navi-list a:active,.navi-list a:visited{
         color: currentColor;
     }
-    .navi-item{
+    /*.navi-item>a{
+        position: relative;
+    }
+    .navi-hovertext{
+        display: none;
+        position: absolute;
+        top: -2px;
+        left: 2em;
+        z-index: 1;
+        color: #fff;
+    }
+    .navi-hovertext>span{
+        animation: textfade 0.5s ease 0s;
+        animation-fill-mode:forwards;
+        opacity: 0;
+        font-size: 22px;
+    }
+    @keyframes textfade{
+        from{
+            opacity: 0;
+            filter: blur(5px);
+            font-size: 6px;
+        }
+        to{
+            opacity: 1;
+            font-size: 22px;
+        }
+    }*/
+    .navi-item{ 
+        /*white-space: nowrap;overflow: hidden;*/
         flex:1;
         transition: flex 1s,opacity 1s,transform 1s,margin 1s;
-        white-space: nowrap;
-        overflow: hidden;
         line-height: 45px;
     }
     .navi-is-bar{
@@ -127,7 +157,7 @@
             currentRouter(routename){
                 return this.$route.path==routename&&this.$route.path!='/'
             },
-            mouseOverNaviItem(method,item,event){
+            mouseOverNaviItem(method,item,event,index){
                 if(this.$route.path=='/'){
                     if(method=='in'){
                         this.backgroundImageProp=item.hoverBackground
@@ -135,13 +165,14 @@
                         document.querySelector(".site-title").style.color="rgba(255,250,255,0.85)"
                         this.naviColor=item.hoverColor
                         event.target.style.color=item.textColor
-                        console.log(event.target.style)
+                        // document.querySelector('.hover-text-'+index).style.display="block"
                     }
                     else{
                         this.showBackground=false
                         this.naviColor="rgba(255,0,0,0.6)"
                         document.querySelector(".site-title").style.color=null
                         event.target.style.color=""
+                        // document.querySelector('.hover-text-'+index).style.display="none"
                     }
                 }
                 else{
@@ -149,6 +180,7 @@
                     this.naviColor="rgba(255,0,0,0.6)"
                     document.querySelector(".site-title").style.color=null
                     event.target.style.color=""
+                    // document.querySelector('.hover-text-'+index).style.display="none"
                 }
             }
         }

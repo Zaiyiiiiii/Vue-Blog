@@ -107,7 +107,7 @@
     .loginbox-half:hover{
         width: 400px;
         border-radius: 0;
-        transform: scale(1.1)
+        transform: scale(1.03)
     }
     @keyframes fadeinbox{
         from{

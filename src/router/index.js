@@ -22,15 +22,15 @@ export default new Router({
         },
         {
           path: '/blog',
-          name: 'Blog',
+          name: '博文',
           component: Bloglist
         },
         {
           path: '/us',
-          name: 'Us',
+          name: '我们',
           component: Us
         }
       ]
-    },
+    }
   ]
 })

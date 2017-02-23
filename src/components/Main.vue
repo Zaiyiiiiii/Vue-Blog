@@ -30,8 +30,8 @@
     data() {
       return {
         naviData: [
-          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',hoverColor:"orange",textColor:"#A64B00", link: '/blog' },
-          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',hoverColor:"brown",textColor:"#FFB140", link: '/us'}
+          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',hoverColor:"orange",textColor:"#A64B00",hoverText:"强识而让，敦善行而不怠。", link: '/blog' },
+          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',hoverColor:"brown",textColor:"#FFB140",hoverText:"嘿嘿嘿", link: '/us'}
         ],
         msg: 'Wang & Sha'
       }
