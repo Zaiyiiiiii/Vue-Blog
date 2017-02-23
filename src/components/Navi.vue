@@ -35,7 +35,7 @@
     .navi{
         width: 100%;     
         position: relative;
-        transition: all 1s;
+        transition: all 1s,box-shadow 0.5s;
         top:0;
         box-shadow: 0px 0px 5px 2px #fff;
     }
@@ -112,6 +112,7 @@
         color:white!important;
         top: 45%;
         font-size: 36px;
+        box-shadow: none;
     }
     .hide-return{
         flex:0;
@@ -158,7 +159,8 @@
         },
         methods:{            
             currentRouter(routename){
-                return this.$route.path==routename&&this.$route.path!='/'
+                console.log(this.$route)
+                return this.$route.matched[1].path==routename&&this.$route.path!='/'
             },
             mouseOverNaviItem(method,item,event,index){
                 if(this.$route.path=='/'){
