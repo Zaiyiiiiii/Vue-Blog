@@ -1,33 +1,23 @@
 <template>
-<<<<<<< HEAD
-    <div class="blog">
-        <div class="blog-sort">
-            <ul>
-                <li><router-link :to="'/blog'" :class="{'blog-sort-active':currentRouter('/blog')}">全部</router-link></li>
-                <li v-for="sort in blogSortData"><router-link :class="{'blog-sort-active':currentRouter('/blog/sort/'+sort.link)}" :to="'/blog/sort/'+sort.link">{{sort.name}}</router-link></li>
-            </ul>
-        </div>
-        <ul class="blog-title">
-            <li>博客标题</li>
-            <li>博客标题</li>
-            <li>博客标题</li>
-            <li>博客标题</li>
-            <li>博客标题</li>
-        </ul>
-=======
   <div class="blog">
     <div class="blog-sort">
-      <div>
-        <h3>文章分类</h3>
-        <span>javascript</span><span>html</span>
-      </div>
-      <ul class="sort-list">
-        <li v-for="assort in assorts">{{}}</li>
+      <ul>
+        <li>
+          <router-link :to="'/blog'" :class="{'blog-sort-active':currentRouter('/blog')}">全部</router-link>
+        </li>
+        <li v-for="sort in blogSortData">
+          <router-link :class="{'blog-sort-active':currentRouter('/blog/sort/'+sort.link)}"
+                       :to="'/blog/sort/'+sort.link">{{sort.name}}
+          </router-link>
+        </li>
       </ul>
->>>>>>> origin/master
     </div>
     <ul class="blog-title">
-      <li v-for="article in articles"><article-list :data="article"></article-list></li>
+      <li>博客标题</li>
+      <li>博客标题</li>
+      <li>博客标题</li>
+      <li>博客标题</li>
+      <li>博客标题</li>
     </ul>
   </div>
 </template>
@@ -59,6 +49,7 @@
             }
         }
     }
+
 </script>
 <style scoped>
     .blog ul{
@@ -142,7 +133,7 @@
 
     .blog-title{
         flex:3 0 0px;
-    }    
+    }
     .blog-sort-active{
         display: inline-block;
         line-height: 0.98em;
@@ -158,9 +149,10 @@
     }
     .blog-sort>ul>li>a:hover,.blog-sort-active{
         right: calc(100% - 1em)!important;
-        letter-spacing: 3px!important;        
+        letter-spacing: 3px!important;
         color:white;
     }
+
 
 
 
@@ -177,4 +169,5 @@
        }
     }
   }
+
 </script>
