@@ -5,12 +5,14 @@
         <h3>文章分类</h3>
         <span>javascript</span><span>html</span>
       </div>
-      <ul class="sort-list">
+      <!--<ul class="sort-list">
         <li v-for="assort in assorts">{{}}</li>
-      </ul>
+      </ul>-->
     </div>
     <ul class="blog-title">
-      <li v-for="article in articles"><article-list :data="article"></article-list></li>
+      <li v-for="article in articles">
+        <article-list :article="article" :editable="isLogin"></article-list>
+      </li>
     </ul>
   </div>
 </template>
@@ -49,19 +51,22 @@
         flex:3 0 0px;
     }
 
-
-
-
 </style>
 <script>
-  import article-list from "components/Article"
+  import ArticleList from "components/Article"
 
   export default{
+    components: {
+       'article-list': ArticleList,
+    },
     data(){
        return {
-         articles: [{title: "", pubTime: "", author: ""},{title: "", pubTime: "", author: ""}],
-         assorts: [{index: "", children: []}, {index: "", children: []}, {index: "", children: []}]
+       //是否登陆
+         isLogin: true,
+         articles: [{title: "测试博客列表，第一条的title，vue是双向数据绑定，通过v-model实现，使用props进行父子组件的通信", pubTime: "2016-7-20", author: "wang", urlTo: "wang.com"},{title: "vue可以使用watch来监听所有的数据变化，比如data, 样式背景等,", pubTime: "2016-7-20", author: "sha", urlTo: "sha.com"}],
+         assorts: [{index: "", name: "", children: []}, {index: "", name: "", children: []}, {index: "", name: "", children: []}],
        }
     }
   }
+
 </script>
