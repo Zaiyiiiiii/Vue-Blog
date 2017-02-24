@@ -26,7 +26,6 @@
         components: {
            'article-list': ArticleList,
         },
-
         methods:{
             currentRouter(routename){
                 console.log(this.$route.path+":"+routename)
