@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div class="blog">
         <div class="blog-sort">
             <ul>
@@ -14,28 +13,12 @@
             <li>博客标题</li>
             <li>博客标题</li>
         </ul>
-=======
-  <div class="blog">
-    <div class="blog-sort">
-      <div>
-        <h3>文章分类</h3>
-        <span>javascript</span><span>html</span>
-      </div>
-      <ul class="sort-list">
-        <li v-for="assort in assorts">{{}}</li>
-      </ul>
->>>>>>> origin/master
     </div>
-    <ul class="blog-title">
-      <li v-for="article in articles"><article-list :data="article"></article-list></li>
-    </ul>
-  </div>
 </template>
 <script>
     export default{
         methods:{
             currentRouter(routename){
-                console.log(this.$route.path+":"+routename)
                 return this.$route.path==routename
             }
 
@@ -113,12 +96,10 @@
         height: 100%;
         display: flex;
         justify-content: center;
-        box-shadow: 0 30px 30px -12px #fff inset;
     }
     .blog-sort{
         box-shadow: -17px 0 10px -8px rgba(220,220,220,0.3) inset;
         display: flex;
-        font-size: 18px;
         flex-direction: column;
         flex:1 0 0px;
         padding-top: 40px;
@@ -128,18 +109,7 @@
         font-family:'JuzhenFang90f7448985259';
         font-size: 24px;
         overflow: hidden;
-        margin-top: 28px!important;
-        background-color: #EFF3EF;
-        padding: 120px 50px 0;
-        box-sizing: border-box;
-        text-align: left;
     }
-    .blog-sort li {
-        height: 30px;
-        line-height: 30px;
-        color: rgb(13, 183, 13);
-    }
-
     .blog-title{
         flex:3 0 0px;
     }    
@@ -150,10 +120,10 @@
     .blog-sort>ul>:hover::first-letter,.blog-sort-active::first-letter {
         color:rgb(242, 12, 0)!important;
         opacity: 1!important;
-        text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
+        text-shadow: -5px 5px 8px rgba(220,220,220,0.3);
     }
     .blog-sort>ul>li>a:hover::before,.blog-sort-active::before{
-        box-shadow: -5px 5px 6px 3px rgba(230 , 230, 230, 0.8);
+        box-shadow: -5px 5px 6px 3px rgba(220,220,220,0.3);
         background:rgba(240, 120, 50, 0.8)!important;
     }
     .blog-sort>ul>li>a:hover,.blog-sort-active{
@@ -161,20 +131,4 @@
         letter-spacing: 3px!important;        
         color:white;
     }
-
-
-
-
 </style>
-<script>
-  import articleList from "components/Article"
-
-  export default{
-    data(){
-       return {
-         articles: [{title: "", pubTime: "", author: ""},{title: "", pubTime: "", author: ""}],
-         assorts: [{index: "", children: []}, {index: "", children: []}, {index: "", children: []}]
-       }
-    }
-  }
-</script>
