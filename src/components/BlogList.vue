@@ -57,10 +57,6 @@
             }
         }
     }
-
-
-
-
 </script>
 <style scoped>
     .blog ul{
@@ -120,7 +116,6 @@
     .blog-sort{
         box-shadow: -17px 0 10px -8px rgba(220,220,220,0.3) inset;
         display: flex;
-        font-size: 18px;
         flex-direction: column;
         flex:1 0 0px;
         padding-top: 40px;
@@ -130,21 +125,10 @@
         font-family:'JuzhenFang90f7448985259';
         font-size: 24px;
         overflow: hidden;
-        margin-top: 28px!important;
-        background-color: #EFF3EF;
-        padding: 120px 50px 0;
-        box-sizing: border-box;
-        text-align: left;
     }
-    .blog-sort li {
-        height: 30px;
-        line-height: 30px;
-        color: rgb(13, 183, 13);
-    }
-
     .blog-title{
         flex:3 0 0px;
-    }
+    }    
     .blog-sort-active{
         display: inline-block;
         line-height: 0.98em;
@@ -160,13 +144,7 @@
     }
     .blog-sort>ul>li>a:hover,.blog-sort-active{
         right: calc(100% - 1em)!important;
-        letter-spacing: 3px!important;
+        letter-spacing: 3px!important;        
         color:white;
     }
-
-
-
-
-
 </style>
-
