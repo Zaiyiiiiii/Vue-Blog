@@ -35,9 +35,9 @@
     .navi{
         width: 100%;     
         position: relative;
-        transition: all 1s,box-shadow 0.5s;
+        transition: all 1s,box-shadow 0s 0s;
         top:0;
-        box-shadow: 0px 0px 5px 2px #fff;
+        /*box-shadow: 0px 0px 5px 2px #fff;*/
     }
     .navi-list{
         width: 100%;
@@ -112,7 +112,6 @@
         color:white!important;
         top: 45%;
         font-size: 36px;
-        box-shadow: none;
     }
     .hide-return{
         flex:0;
@@ -159,8 +158,8 @@
         },
         methods:{            
             currentRouter(routename){
-                console.log(this.$route)
-                return this.$route.path==routename&&this.$route.path!='/'
+                var match = new RegExp("^"+routename,""); //注意，反斜杠需要转义
+                return this.$route.path.match(match)&&this.$route.path!='/'
             },
             mouseOverNaviItem(method,item,event,index){
                 if(this.$route.path=='/'){
