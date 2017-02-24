@@ -110,7 +110,6 @@
         height: 100%;
         display: flex;
         justify-content: center;
-        box-shadow: 0 30px 30px -12px #fff inset;
     }
     .blog-sort{
         box-shadow: -17px 0 10px -8px rgba(220,220,220,0.3) inset;
