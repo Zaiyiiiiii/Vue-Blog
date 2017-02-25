@@ -63,10 +63,14 @@
     ul>li{
         display: block;
     }
+    .blog-sort>ul>li>a:hover::first-letter,.blog-sort-active::first-letter {
+        color:rgb(242, 12, 0)!important;
+        text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
+    }
     .blog-sort>ul{
         text-align: left;
         position: relative;
-        right: calc(2em - 100%);
+        right: calc(1em - 100%);
         display: flex;
         flex-direction: column;
         align-items:flex-start;
@@ -81,31 +85,18 @@
         position: relative;
         text-decoration: none;
         right: 0;
-        transition: right 0.5s,letter-spacing 0.5s,color 0.5s;
+        transition: box-shadow 0.5s,right 0.5s,letter-spacing 0.5s,color 0.5s,background 0.5s;
         white-space: nowrap;
         color:rgba(120, 120, 120, 0.5);
         display: inline-block;
-        line-height: 0.98em;
+        line-height: 2em;
+        text-align: right;
+        width: calc(100% - 1em);
+        text-indent: 2em;
+        direction: rtl;
+        border-radius: 2em;
     }
-    .blog-sort>ul>::first-line{
-        opacity: 0;
-    }
-    .blog-sort>ul>li>a:before{
-        transition: all 0.5s;
-        background:transparent linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0));
-        content: ' ';
-        position: absolute;
-        z-index: -1;
-        top:-50%;
-        left: 1em;
-        height: 200%;
-        width: calc(100% + 0.6em);
-        border-radius: 30px;
-    }
-    .blog-sort>ul>::first-letter{
-        transition: all 0.5s;
-        opacity: 1;
-    }
+
 
     .blog{
         height: 100%;
@@ -131,20 +122,10 @@
     .blog-sort-active{
     }
     .blog-sort>ul>li>a:hover,.blog-sort-active{
-        right: calc(100% - 1em)!important;
+        background:rgba(240, 120, 50, 0.8);
+        right: calc(100% - 3em)!important;
         letter-spacing: 3px!important;        
         color:white!important;
-    }
-    .blog-sort>ul>li:hover::first-letter,.blog-sort-active::first-letter {
-        color:rgb(242, 12, 0)!important;
-        text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
-    }
-    .blog-sort>ul>li>a:hover::before,.blog-sort-active::before{
-        box-shadow: -5px 5px 6px 3px rgba(230 , 230, 230, 0.8);
-        background:rgba(240, 120, 50, 0.8)!important;
-    }
-    .blog-sort>ul li:hover::first-letter{
-        color:blue!important;
-        transition: color 1s;
+        box-shadow: 5px 5px 6px 3px rgba(220,220,220,0.3);
     }
 </style>

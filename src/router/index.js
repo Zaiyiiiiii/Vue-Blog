@@ -5,6 +5,7 @@ import Article from 'components/Article'
 import Bloglist from 'components/BlogList'
 import Us from 'components/Us'
 import NotFound from 'components/404'
+import Publish from 'components/Publish'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
           path: '/us',
           name: '我们',
           component: Us
+        },
+        {
+          path: '/publish',
+          name: '发表牢骚',
+          component: Publish
         },
         {
           path: '*',
