@@ -14,6 +14,7 @@ export default {
   },
   mounted(){
     window.onload=()=>{this.loaded=true}
+    document.title=this.$route.name
   }
 }
 </script>

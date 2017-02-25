@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <transition name="fade">
+      <!--要改成从上向下滑动-->
       <UglyLoginBox></UglyLoginBox>
     </transition>
     <transition name="fade">

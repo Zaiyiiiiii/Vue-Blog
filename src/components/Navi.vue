@@ -4,11 +4,10 @@
         <ul class="navi-list">
             <li style="white-space: nowrap;overflow: hidden;" :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
             <li @click="mouseOverNaviItem('out',item,$event,index)" @mouseout="mouseOverNaviItem('out',item,$event,index)" @mouseover="mouseOverNaviItem('in',item,$event,index)" v-for="(item,index) in items" class="navi-item">
-                <router-link v-if="!currentRouter(item.link)" :to="item.link">
+                <router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">
                     {{item.name}}
                     <!--<div class="navi-hovertext" :class="'hover-text-'+index"><span v-for="(char,index) in item.hoverText.split('')" :style="'animation-delay:'+index/2+'s'">{{char}}</span></div>-->
                 </router-link>
-                <span v-else class="route-active">{{item.name}}</span>
             </li>
         </ul>
 <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58aeaac0f629da0f684a15c8.css' rel='stylesheet' type='text/css' />    </div>
@@ -95,9 +94,9 @@
         font-size: 24px;
     }
     .navi-is-bar a,.route-active{
-        border-bottom: 3px solid transparent;
+        border-bottom: 3px solid rgba(0,0,0,0);
         border-radius: 3px;
-        transition: color 0.4s,border 0.4s;
+        transition: color 0.4s,border 0.4s!important;
     }
     .navi-is-bar a:hover{
         color:#f20c00;
@@ -106,7 +105,7 @@
     .route-active{
         color:#f20c00!important;
         cursor: default;
-        border-bottom-color:#f20c00;
+        border-bottom-color:#f20c00!important;
     }
     .navi-is-menu{
         color:white!important;

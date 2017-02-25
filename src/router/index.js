@@ -4,6 +4,7 @@ import Main from 'components/Main'
 import Article from 'components/Article'
 import Bloglist from 'components/BlogList'
 import Us from 'components/Us'
+import NotFound from 'components/404'
 
 Vue.use(Router)
 
@@ -12,9 +13,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Wang & Sha',
       component: Main,
       children: [
+        {
+          path:'/',
+          name:'Wang & Sha'
+        },
         {
           path: '/p/:id',
           name: 'Article',
@@ -36,6 +40,11 @@ export default new Router({
           path: '/us',
           name: '我们',
           component: Us
+        },
+        {
+          path: '*',
+          name: '能不能不瞎点',
+          component: NotFound
         }
       ]
     }

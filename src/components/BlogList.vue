@@ -28,7 +28,6 @@
         },
         methods:{
             currentRouter(routename){
-                console.log(this.$route.path+":"+routename)
                 return this.$route.path==routename
             }
 
@@ -84,6 +83,9 @@
         right: 0;
         transition: right 0.5s,letter-spacing 0.5s,color 0.5s;
         white-space: nowrap;
+        color:rgba(120, 120, 120, 0.5);
+        display: inline-block;
+        line-height: 0.98em;
     }
     .blog-sort>ul>::first-line{
         opacity: 0;
@@ -102,7 +104,6 @@
     }
     .blog-sort>ul>::first-letter{
         transition: all 0.5s;
-        color:rgb(66, 185, 131);
         opacity: 1;
     }
 
@@ -128,21 +129,22 @@
         flex:3 0 0px;
     }    
     .blog-sort-active{
-        display: inline-block;
-        line-height: 0.98em;
     }
-    .blog-sort>ul>:hover::first-letter,.blog-sort-active::first-letter {
+    .blog-sort>ul>li>a:hover,.blog-sort-active{
+        right: calc(100% - 1em)!important;
+        letter-spacing: 3px!important;        
+        color:white!important;
+    }
+    .blog-sort>ul>li:hover::first-letter,.blog-sort-active::first-letter {
         color:rgb(242, 12, 0)!important;
-        opacity: 1!important;
         text-shadow: -5px 5px 8px rgba(230 , 230, 230, 0.8);
     }
     .blog-sort>ul>li>a:hover::before,.blog-sort-active::before{
         box-shadow: -5px 5px 6px 3px rgba(230 , 230, 230, 0.8);
         background:rgba(240, 120, 50, 0.8)!important;
     }
-    .blog-sort>ul>li>a:hover,.blog-sort-active{
-        right: calc(100% - 1em)!important;
-        letter-spacing: 3px!important;        
-        color:white;
+    .blog-sort>ul li:hover::first-letter{
+        color:blue!important;
+        transition: color 1s;
     }
 </style>
