@@ -48,7 +48,8 @@
         font-size: 1.4em;
     }
     .article,.article-editor{
-        height: 100%;
+        min-height: 400px;
+        height: 5000px;
         width: 100%;
     }
     .article-title-contianer{
