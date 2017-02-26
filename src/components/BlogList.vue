@@ -14,17 +14,17 @@
     </div>
     <ul class="blog-title">
       <li v-for="article in articles">
-        <article-list :article="article" :editable="isLogin"></article-list>
+        <article-list-item :article="article" :editable="isLogin"></article-list-item>
       </li>
     </ul>
   </div>
 </template>
 <script>
-    import ArticleList from "components/Article"
+    import ArticleListItem from "components/ArticleListItem"
 
     export default{
         components: {
-           'article-list': ArticleList,
+           'article-list-item': ArticleListItem,
         },
         methods:{
             currentRouter(routename){
@@ -36,7 +36,7 @@
             return {
             //是否登陆
          isLogin: true,
-         articles: [{title: "测试博客列表，第一条的title，vue是双向数据绑定，通过v-model实现，使用props进行父子组件的通信", pubTime: "2016-7-20", author: "wang", urlTo: "wang.com"},{title: "vue可以使用watch来监听所有的数据变化，比如data, 样式背景等,", pubTime: "2016-7-20", author: "sha", urlTo: "sha.com"}],
+         articles: [{title: "测试博客列表，第一条的title，vue是双向数据绑定，通过v-model实现，使用props进行父子组件的通信", pubTime: "2016-7-20", author: "wang", name: "wang",id:"1"},{title: "vue可以使用watch来监听所有的数据变化，比如data, 样式背景等,", pubTime: "2016-7-20", author: "sha", name:"sha",id:"2"}],
          assorts: [{index: "", name: "", children: []}, {index: "", name: "", children: []}, {index: "", name: "", children: []}],
                 blogSortData:[
                     {

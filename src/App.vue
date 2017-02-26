@@ -34,6 +34,7 @@ body,html{
   text-align: center;
   filter: blur(8px);    
   transition: filter 1.6s linear;
+  pointer-events: none;
 }
 #app,.main,body{
     position: relative;
@@ -41,6 +42,7 @@ body,html{
 }
 .apploaded{
   filter: none!important;
+  pointer-events: inherit!important;
 }
 ul{
   padding: 0;

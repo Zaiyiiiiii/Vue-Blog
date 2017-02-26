@@ -7,6 +7,7 @@
 </template>
 <style>
     .notfound{
+        box-sizing: border-box;
         text-align: left;
         height: 100%;
         display: flex;
