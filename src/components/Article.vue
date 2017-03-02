@@ -1,12 +1,12 @@
 <template>
     <div class="article" keep-alive>
-        
+
         <button class="edit-button" @click="switchEdit()">{{ifEdit?'保存':'编辑'}}</button>
         <div class="article-title-contianer">
             <div class="article-title" v-if="!ifEdit">{{title}}</div>
             <input class="article-title" v-else v-model="title"></input>
             <svg>
-                <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0" 
+                <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0"
                  />
             </svg>
         </div>
@@ -36,7 +36,7 @@
             highlight(){
 
             },
-            switchEdit(){ 
+            switchEdit(){
                 this.ifEdit=!this.ifEdit
                 if(this.ifEdit){
                 }else{
@@ -47,7 +47,7 @@
                     this.fullScreenState=false
                     if (this.fullScreenElement.requestFullscreen) {
                         this.fullScreenElement.requestFullscreen();
-                    } 
+                    }
                     else if (this.fullScreenElement.webkitRequestFullScreen) {
                         this.fullScreenElement.webkitRequestFullScreen();
                     }
@@ -56,10 +56,10 @@
                     this.fullScreenState=true
                     if (document.exitFullscreen) {
                         document.exitFullscreen();
-                    } 
+                    }
                     else if (document.webkitExitFullscreen) {
                         document.webkitExitFullscreen();
-                    }                    
+                    }
                 }
             }
         },
@@ -74,7 +74,7 @@
                 fullScreenElement:document.documentElement,
                 title:"fff",
                 articleContext:"32132132132",
-                ifEdit:false,
+                ifEdit: (document.URL).split("#")[1] == "exit" ? true : false,
                 editorConfig:{
                         activeButtonClass: 'medium-editor-button-active',
                         buttonLabels: false,
@@ -139,7 +139,7 @@
         pointer-events: none;
         border-radius: 4px 4px 4px 0;
     }
-    
+
 
     .article-title-border{
         width: 100%;
@@ -210,11 +210,11 @@
         padding: 16px;
         margin: 0px;
     }
-    
+
     html:-webkit-full-screen .site-title,html:-webkit-full-screen .navi{
         display: none;
     }
-    
+
     html:-webkit-full-screen .article{
         box-sizing: border-box;
         margin-top: 100px;
