@@ -2,7 +2,7 @@
     <dl>
       <dt><router-link :to="'/blog/'+ article.id">{{article.title}}</router-link></dt>
       <dd>
-        <router-link :to="'/blog/'+ article.id + '/#edit'" v-if="editable">编辑</router-link>
+        <button v-if="editable" @click="edit(article.id)">编辑</button>
         <span class="margin-rt10">发布时间：{{article.pubTime}}</span>
         <span class="margin-rt10">作者：{{article.author}}</span>
         <!--评论数是从data中携带过来 还是单独存在 使用watch来更新？评论框做成一个弹框-->
@@ -59,8 +59,7 @@ button{
         //编辑
            edit(articleId){
              //路由跳转
-             console.log(articleId)
-             router.push();
+             this.$router.push("/blog/" + articleId + "#edit");
            },
         //展开评论列表
            showComment(){
