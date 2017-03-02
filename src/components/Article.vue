@@ -2,7 +2,6 @@
     <div class="article" keep-alive>
         
         <button class="edit-button" @click="switchEdit()">{{ifEdit?'保存':'编辑'}}</button>
-        <button @click="enterFullScreen">全屏</button>
         <div class="article-title-contianer">
             <div class="article-title" v-if="!ifEdit">{{title}}</div>
             <input class="article-title" v-else v-model="title"></input>
@@ -11,35 +10,68 @@
                  />
             </svg>
         </div>
-        <div class="article-context" :contenteditable="ifEdit" :class="{'article-context-editing':ifEdit}">
+        <div class="article-context">
+            <transition name="fade">
+                <div v-if="ifEdit" @click="switchFullScreen" class="articl-fullscreen">
+                    <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
+                </div>
+            </transition>
+            <div class="article-editor" :contenteditable="ifEdit" :class="{'article-context-editing':ifEdit}">
+        </div>
         </div>
     </div>
 </template>
 <script>
-    import * as medium from 'medium-editor'
+    import * as MediumEditor from 'medium-editor'
+    // var b = document.createElement('script')
+    // b.src="/static/medium-editor.min.js"
+    // document.body.appendChild(b)
+    import * as AutoList from '../../static/autolist.min.js'
+    import * as MediumButton from 'medium-button'
+    var autolist = new AutoList();
     export default{
+        computed:{
+        },
         methods:{
+            highlight(){
+
+            },
             switchEdit(){ 
                 this.ifEdit=!this.ifEdit
                 if(this.ifEdit){
                 }else{
                 }
             },
-            enterFullScreen() {
-                var article = document.querySelector(".article");
-                if (article.requestFullscreen) {
-                    article.requestFullscreen();
-                } else if (article.webkitRequestFullScreen) {
-                    article.webkitRequestFullScreen();
+            switchFullScreen() {
+                if(!document.webkitFullscreenElement){
+                    this.fullScreenState=false
+                    if (this.fullScreenElement.requestFullscreen) {
+                        this.fullScreenElement.requestFullscreen();
+                    } 
+                    else if (this.fullScreenElement.webkitRequestFullScreen) {
+                        this.fullScreenElement.webkitRequestFullScreen();
+                    }
+                }
+                else{
+                    this.fullScreenState=true
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } 
+                    else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }                    
                 }
             }
         },
         mounted(){
-            var editor = new medium('.article-context',this.editorConfig)
-            document.querySelector(".article-context").setAttribute("contenteditable",this.ifEdit)
+            var editor = new MediumEditor('.article-editor',this.editorConfig)
+            document.querySelector(".article-editor").setAttribute("contenteditable",this.ifEdit)
+            hljs.initHighlighting();
         },
         data(){
             return{
+                fullScreenState:true,
+                fullScreenElement:document.documentElement,
                 title:"fff",
                 articleContext:"32132132132",
                 ifEdit:false,
@@ -53,16 +85,25 @@
                         disableExtraSpaces: false,
                         disableEditing: false,
                         elementsContainer: document.querySelector(".article"),
-                        extensions: {},
+                        extensions: {
+                            'autolist': autolist,
+                            'code': new MediumButton({label:'<b>Code</b>', start:'<code>', end:'</code>',//,action:hljs.initHighlighting()
+                            // action: (document.querySelectorAll("code").forEach(function(element){
+                            //             console.log("code")
+                            //             hljs.highlightBlock(element)
+                            //         }))
+                        })},
                         ownerDocument: document,
                         spellcheck: true,
                         targetBlank: false,
                         placeholder:false,
-                        toolbar
+                        toolbar:{
+                            relativeContainer:document.querySelector(".article"),
+                            buttons: ['h1', 'h2', 'bold', 'italic','underline', 'quote', 'pre','code',
+                             'unorderedlist','orderedlist', 'justifyLeft', 'justifyCenter', 'anchor']
+                        },
                 }
             }
-        },
-        computed:{
         }
     }
 </script>
@@ -98,6 +139,8 @@
         pointer-events: none;
         border-radius: 4px 4px 4px 0;
     }
+    
+
     .article-title-border{
         width: 100%;
         height: 100%;
@@ -109,22 +152,30 @@
         transition: stroke-dashoffset 0.5s ease,stroke-dasharray 0.5s ease,stroke 0.5s;
     }
     .article-title-border-edit{
-        stroke: rgba(220, 150, 180, 0.1);
+        stroke: rgba(181, 64, 16, 0.15);
         stroke-dasharray:30em,63em;
         stroke-dashoffset: 60em;
     }
     .article>.article-context{
+        position: relative;
         width: 800px;
         margin: 50px auto;
-        text-align: left;
-        padding: 3em;
         box-sizing: border-box;
         font-size: 1.2em;
         transition: box-shadow 0.4s;
+    }
+    .article-editor{
+        box-sizing: border-box;
+        text-align: left;
+        padding: 3em;
         outline: none;
+        transition: box-shadow 0.5s;
     }
     .article-context-editing{
-        box-shadow: 0 0 16px 8px rgba(220, 150, 180, 0.1)
+        box-shadow: 0 0 16px 8px rgba(181, 64, 16, 0.05);
+    }
+    .article-context-editing:focus{
+        box-shadow: 0 0 16px 8px rgba(181, 64, 16, 0.1)
     }
     .article-title{
         text-align: left;
@@ -137,10 +188,39 @@
         padding:0;
         padding-left: 1em;
     }
+    .articl-fullscreen{
+        position: absolute;
+        top:1em;
+        right: 1em;
+        font-size: 1.5em;
+        color: rgba(181, 64, 16, 0.2);
+        transition: all 0.5s
+    }
+    .articl-fullscreen:hover{
+        position: absolute;
+        top:1em;
+        right: 1em;
+        font-size: 1.5em;
+        color: rgba(181, 64, 16, 0.5);
+        transition: all 0.5s
+    }
     blockquote{
-        border-left: 7px solid #f20c00;
-        color:#aaa;
+        border-left: 6px solid #f20c00;
+        color:#999;
         padding: 16px;
-        margin: 0;
+        margin: 0px;
+    }
+    
+    html:-webkit-full-screen .site-title,html:-webkit-full-screen .navi{
+        display: none;
+    }
+    
+    html:-webkit-full-screen .article{
+        box-sizing: border-box;
+        margin-top: 100px;
+        padding-top:100px;
+    }
+    html:-webkit-full-screen .article-context{
+        margin-bottom: 300px;
     }
 </style>

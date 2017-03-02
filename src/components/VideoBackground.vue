@@ -30,7 +30,7 @@
     export default {
         computed:{
             todayVideoSrc(){
-                return "http://olg2tqiyk.bkt.clouddn.com//blog/video/HolidayDeer_GettyRF-473330017_1080_HD_ZH-CN.mp4";
+                return "http://olg2tqiyk.bkt.clouddn.com//blog/video/AntarcticPenguinChicks_GettyRR_117721427-768_EN-US.mp4";
             }
         }
     }
