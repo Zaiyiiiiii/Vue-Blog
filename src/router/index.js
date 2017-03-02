@@ -28,7 +28,7 @@ export default new Router({
           path: '/blog',
           name: '博文',
           component: Bloglist,
-          children:[            
+          children:[
             {
               path: '/blog/sort/:sortname',
               name: '博文 ',
@@ -40,11 +40,6 @@ export default new Router({
           path: '/us',
           name: '我们',
           component: Us
-        },
-        {
-          path: '/p/:id/edit',
-          name: '编辑文章',
-          component: Article
         },
         {
           path: '/publish',
