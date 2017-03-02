@@ -13,6 +13,7 @@
       </ul>
     </div>
     <ul class="blog-title">
+      <li><button style="width: 300px; border:5px dotted #ccc; border-radius: 3px; font-size: 16px;padding: 10px;">新增博文</button></li>
       <li v-for="article in articles">
         <article-list-item :article="article" :editable="isLogin"></article-list-item>
       </li>
@@ -118,13 +119,13 @@
     }
     .blog-title{
         flex:3 0 0px;
-    }    
+    }
     .blog-sort-active{
     }
     .blog-sort>ul>li>a:hover,.blog-sort-active{
         background:rgba(240, 120, 50, 0.8);
         right: calc(100% - 3em)!important;
-        letter-spacing: 3px!important;        
+        letter-spacing: 3px!important;
         color:white!important;
         box-shadow: 5px 5px 6px 3px rgba(220,220,220,0.3);
     }
