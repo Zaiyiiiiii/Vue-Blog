@@ -1,6 +1,6 @@
 <template>
     <dl>
-      <dt><router-link :to="'/blog/'+article.name">{{article.title}}</router-link></dt>
+      <dt><router-link :to="'/blog/'+ article.id">{{article.title}}</router-link></dt>
       <dd>
         <router-link :to="'/blog/'+ article.id + '/#edit'" v-if="editable">编辑</router-link>
         <span class="margin-rt10">发布时间：{{article.pubTime}}</span>
