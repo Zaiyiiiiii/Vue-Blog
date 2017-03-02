@@ -2,7 +2,7 @@
     <dl>
       <dt><router-link :to="'/blog/'+article.name">{{article.title}}</router-link></dt>
       <dd>
-        <button v-if="editable" @click="edit">编辑</button>
+        <router-link :to="'/blog/'+ article.id + '/#edit'" v-if="editable">编辑</router-link>
         <span class="margin-rt10">发布时间：{{article.pubTime}}</span>
         <span class="margin-rt10">作者：{{article.author}}</span>
         <!--评论数是从data中携带过来 还是单独存在 使用watch来更新？评论框做成一个弹框-->
@@ -18,6 +18,13 @@ i{
 dl {
   border-bottom: 1px dotted #42b983;
 }
+
+dl:hover{
+  padding: 10px 20px;
+  background: #666;
+  transition: all 0.2s ease-out;
+}
+
 dl > dt{
    text-align: left;
    padding: 20px;
@@ -48,10 +55,12 @@ button{
 <script>
     export default{
         props: ['article', 'editable'],
-        methods:{
+        methods: {
         //编辑
-           edit(){
+           edit(articleId){
              //路由跳转
+             console.log(articleId)
+             router.push();
            },
         //展开评论列表
            showComment(){
