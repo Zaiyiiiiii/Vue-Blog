@@ -1,13 +1,13 @@
 <template>
     <div :style="{backgroundColor:$route.path=='/'?naviColor:'#fff'}" class="navi" :class="[isBar?'navi-is-bar':'navi-is-menu']">
-        <div class="body-background" :style="{backgroundImage:backgroundImageProp}" :class="{'background-show':showBackground}"></div>
         <ul class="navi-list">
             <li style="white-space: nowrap;overflow: hidden;" :class="{'hide-return':$route.path=='/'}" class="navi-item"><router-link to="/">返回</router-link></li>
             <li @click="mouseOverNaviItem('out',item,$event,index)" @mouseout="mouseOverNaviItem('out',item,$event,index)" @mouseover="mouseOverNaviItem('in',item,$event,index)" v-for="(item,index) in items" class="navi-item">
-                <router-link :class="{'route-active':currentRouter(item.link)}" :to="item.link">
+                <router-link class="route-link" :class="{'route-active':currentRouter(item.link)}" :to="item.link">
                     {{item.name}}
                     <!--<div class="navi-hovertext" :class="'hover-text-'+index"><span v-for="(char,index) in item.hoverText.split('')" :style="'animation-delay:'+index/2+'s'">{{char}}</span></div>-->
                 </router-link>
+                <div class="body-background" :style="{backgroundImage:item.hoverBackground}"></div>
             </li>
         </ul>
 <link href='//cdn.webfont.youziku.com/webfonts/nomal/21081/46723/58aeaac0f629da0f684a15c8.css' rel='stylesheet' type='text/css' />    </div>
@@ -27,10 +27,9 @@
         opacity: 0;
         transition: opacity 0.2s linear,background 0.2s;
     }
-    .background-show{
+    .navi-is-menu .navi-item:hover>.body-background{
         opacity: 1.0;
     }
-
     .navi{
         width: 100%;     
         position: relative;
@@ -148,8 +147,6 @@
         },
         data(){
             return {                
-                showBackground:false,
-                backgroundImageProp:"",
                 naviColor:"rgba(255,0,0,0.6)"
             }
         },
@@ -163,15 +160,12 @@
             mouseOverNaviItem(method,item,event,index){
                 if(this.$route.path=='/'){
                     if(method=='in'){
-                        this.backgroundImageProp=item.hoverBackground
-                        this.showBackground=true
                         document.querySelector(".site-title").style.color="rgba(255,250,255,0.85)"
                         this.naviColor=item.hoverColor
                         event.target.style.color=item.textColor
                         // document.querySelector('.hover-text-'+index).style.display="block"
                     }
                     else{
-                        this.showBackground=false
                         this.naviColor="rgba(255,0,0,0.6)"
                         document.querySelector(".site-title").style.color=null
                         event.target.style.color=""
@@ -179,7 +173,7 @@
                     }
                 }
                 else{
-                    this.showBackground=false
+                    // this.showBackground=false
                     this.naviColor="rgba(255,0,0,0.6)"
                     document.querySelector(".site-title").style.color=null
                     event.target.style.color=""

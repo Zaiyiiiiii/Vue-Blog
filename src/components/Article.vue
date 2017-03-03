@@ -12,7 +12,7 @@
         </div>
         <div class="article-context">
             <transition name="fade">
-                <div v-if="ifEdit" @click="switchFullScreen" class="articl-fullscreen">
+                <div v-if="ifEdit" @click="switchFullScreen" class="article-fullscreen">
                     <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
                 </div>
             </transition>
@@ -26,9 +26,7 @@
     // var b = document.createElement('script')
     // b.src="/static/medium-editor.min.js"
     // document.body.appendChild(b)
-    import * as AutoList from '../../static/autolist.min.js'
     import * as MediumButton from 'medium-button'
-    var autolist = new AutoList();
     export default{
         computed:{
         },
@@ -86,7 +84,6 @@
                         disableEditing: false,
                         elementsContainer: document.querySelector(".article"),
                         extensions: {
-                            'autolist': autolist,
                             'code': new MediumButton({label:'<b>Code</b>', start:'<code>', end:'</code>',//,action:hljs.initHighlighting()
                             // action: (document.querySelectorAll("code").forEach(function(element){
                             //             console.log("code")
@@ -188,7 +185,7 @@
         padding:0;
         padding-left: 1em;
     }
-    .articl-fullscreen{
+    .article-fullscreen{
         position: absolute;
         top:1em;
         right: 1em;
@@ -196,7 +193,7 @@
         color: rgba(181, 64, 16, 0.2);
         transition: all 0.5s
     }
-    .articl-fullscreen:hover{
+    .article-fullscreen:hover{
         position: absolute;
         top:1em;
         right: 1em;
