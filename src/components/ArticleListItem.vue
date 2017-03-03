@@ -1,14 +1,18 @@
 <template>
-    <dl>
-      <dt><router-link :to="'/blog/'+ article.id">{{article.title}}</router-link></dt>
-      <dd>
+  <dl>
+    <dt>
+      <router-link :to="'/blog/'+ article.id">{{article.title}}</router-link>
+    </dt>
+    <dd>
+      <div class="dd-content">
         <button v-if="editable" @click="edit(article.id)">编辑</button>
         <span class="margin-rt10">发布时间：{{article.pubTime}}</span>
         <span class="margin-rt10">作者：{{article.author}}</span>
         <!--评论数是从data中携带过来 还是单独存在 使用watch来更新？评论框做成一个弹框-->
         <button @click="showComment" class="comment">评论个数(<i class="font-color-gr">1</i>)</button>
-      </dd>
-    </dl>
+      </div>
+    </dd>
+  </dl>
 </template>
 
 <style>
@@ -30,10 +34,20 @@ dl > dt{
    padding: 20px;
 }
 dl > dd{
+   position: relative;
    font-size: 12px;
    text-align: right;
-   padding: 10px 30px;
+   padding: 12px 30px;
 }
+
+.dd-content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 3px 20px;
+  background-color: #ECECEC;
+}
+
 button{
   outline: none;
   border: none;
@@ -50,6 +64,8 @@ button{
 .font-color-gr {
   color: #42b983;
 }
+
+
 </style>
 
 <script>
@@ -66,4 +82,6 @@ button{
            }
         },
     }
+
+
 </script>
