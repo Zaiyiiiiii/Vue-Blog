@@ -1,7 +1,9 @@
 <template>
     <div class="article" keep-alive>
 
-        <button class="edit-button" @click="switchEdit()">{{ifEdit?'保存':'编辑'}}</button>
+        <button class="edit-button" :class="ifEdit?'edit-button-edit':'edit-button-save'" @click="switchEdit()">
+            <svg class="icon" aria-hidden="true"><use :xlink:href="ifEdit?'#icon-save':'#icon-edit'"></use></svg>
+        </button>
         <div class="article-title-contianer">
             <div class="article-title" v-if="!ifEdit">{{title}}</div>
             <input class="article-title" v-else v-model="title"></input>
@@ -23,9 +25,6 @@
 </template>
 <script>
     import * as MediumEditor from 'medium-editor'
-    // var b = document.createElement('script')
-    // b.src="/static/medium-editor.min.js"
-    // document.body.appendChild(b)
     import * as MediumButton from 'medium-button'
     export default{
         computed:{
@@ -72,33 +71,29 @@
                 fullScreenElement:document.documentElement,
                 title:"fff",
                 articleContext:"32132132132",
-                ifEdit: (document.URL).split("#")[1] == "exit" ? true : false,
+                ifEdit: (document.URL).split("#")[1] == "edit" ? true : false,
                 editorConfig:{
-                        activeButtonClass: 'medium-editor-button-active',
-                        buttonLabels: false,
-                        contentWindow: window,
-                        delay: 0,
-                        disableReturn: false,
-                        disableDoubleReturn: false,
-                        disableExtraSpaces: false,
-                        disableEditing: false,
-                        elementsContainer: document.querySelector(".article"),
-                        extensions: {
-                            'code': new MediumButton({label:'<b>Code</b>', start:'<code>', end:'</code>',//,action:hljs.initHighlighting()
-                            // action: (document.querySelectorAll("code").forEach(function(element){
-                            //             console.log("code")
-                            //             hljs.highlightBlock(element)
-                            //         }))
-                        })},
-                        ownerDocument: document,
-                        spellcheck: true,
-                        targetBlank: false,
-                        placeholder:false,
-                        toolbar:{
-                            relativeContainer:document.querySelector(".article"),
-                            buttons: ['h1', 'h2', 'bold', 'italic','underline', 'quote', 'pre','code',
-                             'unorderedlist','orderedlist', 'justifyLeft', 'justifyCenter', 'anchor']
-                        },
+                    activeButtonClass: 'medium-editor-button-active',
+                    buttonLabels: false,
+                    contentWindow: window,
+                    delay: 0,
+                    disableReturn: false,
+                    disableDoubleReturn: false,
+                    disableExtraSpaces: false,
+                    disableEditing: false,
+                    elementsContainer: document.querySelector(".article"),
+                    extensions: {
+                        'code': new MediumButton({label:'<b>Code</b>', start:'<code>', end:'</code>',
+                    })},
+                    ownerDocument: document,
+                    spellcheck: true,
+                    targetBlank: false,
+                    placeholder:false,
+                    toolbar:{
+                        relativeContainer:document.querySelector(".article"),
+                        buttons: ['h1', 'h2', 'bold', 'italic','underline', 'quote', 'pre','code',
+                            'unorderedlist','orderedlist', 'justifyLeft', 'justifyCenter', 'anchor']
+                    },
                 }
             }
         }
@@ -114,7 +109,14 @@
         overflow-y:auto;
     }
     .edit-button{
+        transition:all 0.5s;
         font-size: 1.4em;
+    }
+    .edit-button-save{
+        color: #f20c00;
+    }
+    .edit-button-edit{
+        color: rgba(181, 64, 16, 0.15);
     }
     .article-editor{
         min-height: 400px;
@@ -142,7 +144,7 @@
         width: 100%;
         height: 100%;
         stroke-width: 8px;
-        stroke: #f20c00;;
+        stroke: #f20c00;
         fill:none;
         stroke-dasharray:3em,63em;
         stroke-dashoffset: 3em;

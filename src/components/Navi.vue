@@ -30,6 +30,9 @@
     .navi-is-menu .navi-item:hover>.body-background{
         opacity: 1.0;
     }
+    .body-background{
+        pointer-events:none;
+    }
     .navi{
         width: 100%;     
         position: relative;
