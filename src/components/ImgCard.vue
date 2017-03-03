@@ -9,10 +9,14 @@
 </template>
 <style>
    .img-card {
-      width: 300px;
-      height: 500px;
+      width: 230px;
+      height: 300px;
       padding: 0 6px;
       box-sizing: border-box;
+   }
+   .img-card > a {
+      display: inline-block;
+      height: 110px;
    }
 </style>
 <script>
