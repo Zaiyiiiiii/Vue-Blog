@@ -29,7 +29,6 @@
     import * as AutoList from '../../static/autolist.min.js'
     import * as MediumButton from 'medium-button'
     var autolist = new AutoList();
-
     export default{
         computed:{
         },
@@ -68,7 +67,6 @@
             var editor = new MediumEditor('.article-editor',this.editorConfig)
             document.querySelector(".article-editor").setAttribute("contenteditable",this.ifEdit)
             hljs.initHighlighting();
- 
         },
         data(){
             return{
@@ -76,7 +74,7 @@
                 fullScreenElement:document.documentElement,
                 title:"fff",
                 articleContext:"32132132132",
-                ifEdit: (document.URL).split("#")[1] == "edit" ? true : false,
+                ifEdit: (document.URL).split("#")[1] == "exit" ? true : false,
                 editorConfig:{
                         activeButtonClass: 'medium-editor-button-active',
                         buttonLabels: false,
