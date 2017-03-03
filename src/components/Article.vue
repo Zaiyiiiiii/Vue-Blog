@@ -74,7 +74,7 @@
                 fullScreenElement:document.documentElement,
                 title:"fff",
                 articleContext:"32132132132",
-                ifEdit: (document.URL).split("#")[1] == "exit" ? true : false,
+                ifEdit: (document.URL).split("#")[1] == "edit" ? true : false,
                 editorConfig:{
                         activeButtonClass: 'medium-editor-button-active',
                         buttonLabels: false,
