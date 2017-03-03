@@ -2,6 +2,7 @@
   <div class="blog">
     <div class="blog-sort">
       <ul>
+        <li style="margin-left: -30px;letter-spacing: 0; font-size: 26px;">+</li>
         <li>
           <router-link :to="'/blog'" :class="{'blog-sort-active':currentRouter('/blog')}">全部</router-link>
         </li>
@@ -13,7 +14,6 @@
       </ul>
     </div>
     <ul class="blog-title">
-      <li><button style="width: 300px; border:5px dotted #ccc; border-radius: 3px; font-size: 16px;padding: 10px;">新增博文</button></li>
       <li v-for="article in articles">
         <article-list-item :article="article" :editable="isLogin"></article-list-item>
       </li>
