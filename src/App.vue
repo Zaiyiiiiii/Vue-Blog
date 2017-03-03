@@ -26,7 +26,7 @@ body,html{
   height: 100%;
   transition: opacity 0.8s linear;
 }
-#app {  
+#app {
   height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

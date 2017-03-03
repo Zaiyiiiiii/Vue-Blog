@@ -14,7 +14,7 @@
       <transition name="fade">
         <router-view></router-view>
       </transition>
-        <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
     </div>    
   </div>
 </template>
