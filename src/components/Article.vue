@@ -90,7 +90,7 @@
         },
         mounted(){
             this.editor = new MediumEditor('.article-editor',this.editorConfig)
-            document.querySelector(".article-editor").setAttribute("contenteditable",this.ifEdit)
+            //document.querySelector(".article-editor").setAttribute("contenteditable",this.ifEdit)
             hljs.initHighlighting();
         },
         data(){
@@ -192,8 +192,6 @@
         pointer-events: none;
         border-radius: 4px 4px 4px 0;
     }
-
-
     .article-title-border{
         width: 100%;
         height: 100%;
