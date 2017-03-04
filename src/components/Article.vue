@@ -115,6 +115,7 @@
     }
     .edit-button{
         font-size: 1.4em;
+        transition:all 0.5s;
     }
     .edit-button-edit{
         color:rgba(181, 64, 16, 0.15);
