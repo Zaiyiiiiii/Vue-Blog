@@ -7,7 +7,7 @@
       <div class="dd-content">
         <img src="../../static/img/ht-pink.png" style="vertical-align: sub; width: 16px; padding-right: 10px; border-right: 1px solid #ccc"/>
         <button v-if="editable" @click="edit(article.id)" class="btn">编辑</button>
-        <button @click="showComment" class="btn">评论个数(<i class="font-color-gr">1</i>)</button>
+        <button @click="showComment" class="btn">评论个数(<i class="font-color-gr">{{article.commentNum}}</i>)</button>
         <span class="margin-rt10">作者：{{article.author}}</span>
         <span class="margin-rt10">发布时间：{{article.pubTime}}</span>
       </div>
@@ -22,7 +22,7 @@
 }
 
 .article-list-item {
-  border-bottom: 1px dotted #42b983;
+  border-bottom: 1px dotted #353836;
   font-family: "微软雅黑";
 }
 
@@ -37,7 +37,7 @@
 }
 
 .article-dt > a:hover{
-  border-bottom: 1px solid #333;
+  /*border-bottom: 1px solid #333;*/
   color: #333;
 }
 
@@ -73,8 +73,6 @@ button{
 .font-color-gr {
   color: #42b983;
 }
-
-
 </style>
 
 <script>
@@ -85,9 +83,6 @@ button{
            edit(articleId){
              //路由跳转
              this.$router.push("/blog/" + articleId + "#edit");
-           },
-        //展开评论列表
-           showComment(){
            }
         },
     }
