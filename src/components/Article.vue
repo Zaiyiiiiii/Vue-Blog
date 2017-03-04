@@ -52,7 +52,7 @@
                 var url = window.URL.createObjectURL(fileinput.files.item(0))
                 var fileext = fileinput.value.substr(fileinput.value.lastIndexOf(".")).toLowerCase()
                 if(fileext.match(/\.(png|jpe?g|gif|svg)(\?.*)?$/)){
-                    document.execCommand('insertHTML',false,"<img style='display:inline' src='"+url+"'/>")
+                    document.execCommand('insertHTML',false,"<p></p><img style='display:inline' src='"+url+"'/>")
                 }
                 else if(fileext.match(/\.(mp3|wma|ogg|acc)(\?.*)?$/)){
                     document.execCommand('insertHTML',false,"<p><audio style='display:inline;user-select:inhert' controls='controls' src='"+url+"'>哇塞！音乐播放器</audio></p>")
@@ -135,8 +135,11 @@
 <style>
     @import url('../../node_modules/medium-editor/dist/css/medium-editor.css');
     @import url('../../node_modules/medium-editor/dist/css/themes/default.css');
-    
+
     .article{
+      height: 100%;
+      width: 100%;
+      /*overflow: auto;*/
     }
     .article-toolbar{
         position:absolute;
@@ -170,6 +173,8 @@
     .article,.article-editor{
         min-height: 400px;
         width: 100%;
+        overflow: auto;
+
     }
     .article-title-contianer{
         position: relative;
