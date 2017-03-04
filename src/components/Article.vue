@@ -1,18 +1,19 @@
 <template>
     <div class="article" keep-alive>
-
-        <button class="edit-button" @click="switchEdit()">{{ifEdit?'保存':'编辑'}}</button>
+        <button class="edit-button" :class="ifEdit?'edit-button-edit':'edit-button-save'" @click="switchEdit()">
+            <svg class="icon" aria-hidden="true"><use :xlink:href="ifEdit?'#icon-save':'#icon-edit'"></use></svg>
+        </button>
         <div class="article-title-contianer">
-            <div class="article-title" v-if="!ifEdit">{{title}}</div>
-            <input class="article-title" v-else v-model="title"></input>
-            <svg>
-                <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0"
-                 />
-            </svg>
+        <div class="article-title" v-if="!ifEdit">{{title}}</div>
+        <input class="article-title" v-else v-model="title"></input>
+        <svg>
+            <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0"
+                />
+        </svg>
         </div>
         <div class="article-context">
             <transition name="fade">
-                <div v-if="ifEdit" @click="switchFullScreen" class="articl-fullscreen">
+                <div v-if="ifEdit" @click="switchFullScreen" class="article-fullscreen">
                     <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
                 </div>
             </transition>
@@ -109,17 +110,19 @@
 </script>
 <style>
     @import url('../../node_modules/medium-editor/dist/css/medium-editor.css');
-    @import url('../../node_modules/medium-editor/dist/css/themes/beagle.css');
+    @import url('../../node_modules/medium-editor/dist/css/themes/default.css');
     .article{
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-        overflow-y:auto;
     }
     .edit-button{
         font-size: 1.4em;
     }
-    .article-editor{
+    .edit-button-edit{
+        color:rgba(181, 64, 16, 0.15);
+    }
+    .edit-button-save{
+        color:#f20c00;
+    }
+    .article,.article-editor{
         min-height: 400px;
         width: 100%;
     }
@@ -188,7 +191,7 @@
         padding:0;
         padding-left: 1em;
     }
-    .articl-fullscreen{
+    .article-fullscreen{
         position: absolute;
         top:1em;
         right: 1em;
@@ -196,7 +199,7 @@
         color: rgba(181, 64, 16, 0.2);
         transition: all 0.5s
     }
-    .articl-fullscreen:hover{
+    .article-fullscreen:hover{
         position: absolute;
         top:1em;
         right: 1em;

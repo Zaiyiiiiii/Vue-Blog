@@ -77,31 +77,33 @@
     height: 100%;
     text-align: center;
     z-index: -1;
-    overflow: hidden;
+    overflow: auto;
   }
-  *::-webkit-scrollbar{
+  .component-container::-webkit-scrollbar{
     width: 8px;
     background-color: transparent;
     position: relative;
   }
   /*定义滚动条的轨道，内阴影及圆角*/
-  *::-webkit-scrollbar-track{
-    border-radius: 8px;
+  .component-container::-webkit-scrollbar-track{
+    border-radius: 10px;
     background-color: #f5f5f5;
     position: relative;
     left: -5px;
     transition: all 0.2s;
   }
   /*定义滑块，内阴影及圆角*/
-  *::-webkit-scrollbar-thumb{
+  .component-container::-webkit-scrollbar-thumb{
     background-color: rgba(120,120,120,0.6) ;
     transition: all 0.2s;
   }
-  *::-webkit-scrollbar-track:window-inactive{
+  .component-container::-webkit-scrollbar-track:window-inactive{
     background-color:rgba(0,0,0,0);
+    transition: all 0.2s;
   }
-  *::-webkit-scrollbar-thumb:window-inactive{
+  .component-container::-webkit-scrollbar-thumb:window-inactive{
     background-color: rgba(120,120,120,0.1) ;
+    transition: all 0.2s;
   }
   .component-container>*{
     position: absolute;
@@ -119,15 +121,12 @@
 
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity 0.5s
   }
 
   .fade-enter,
   .fade-leave-active {
-    opacity: 0;
-    box-sizing: border-box;
-    height:100%;
-    overflow: hidden;
+    opacity: 0
   }
 
 </style>
