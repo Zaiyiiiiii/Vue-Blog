@@ -30,6 +30,16 @@ dl > dt{
    padding: 20px;
 }
 
+dt > a{
+  text-decoration: none;
+  color: #42b983;
+}
+
+dt > a:hover{
+  border-bottom: 1px solid #333;
+  color: #333;
+}
+
 dl > dd{
    position: relative;
    font-size: 12px;
