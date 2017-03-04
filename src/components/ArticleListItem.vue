@@ -1,6 +1,6 @@
 <template>
-  <dl>
-    <dt>
+  <dl class="article-list-item">
+    <dt class="article-dt">
       <router-link :to="'/blog/'+ article.id">{{article.title}}</router-link>
     </dt>
     <dd>
@@ -17,30 +17,31 @@
 
 <style>
 
-i{
+.font-color-gr{
   font-style: normal;
 }
-dl {
+
+.article-list-item {
   border-bottom: 1px dotted #42b983;
   font-family: "微软雅黑";
 }
 
-dl > dt{
+.article-list-item > dt{
    text-align: left;
    padding: 20px;
 }
 
-dt > a{
+.article-dt > a{
   text-decoration: none;
   color: #42b983;
 }
 
-dt > a:hover{
+.article-dt > a:hover{
   border-bottom: 1px solid #333;
   color: #333;
 }
 
-dl > dd{
+.article-list-item > dd {
    position: relative;
    font-size: 12px;
    text-align: right;
@@ -52,7 +53,6 @@ dl > dd{
   right: 0;
   top: 0;
   padding: 3px 16px;
-  background-color: #ECECEC;
 }
 
 button{
