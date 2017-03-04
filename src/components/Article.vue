@@ -13,8 +13,16 @@
         </div>
         <div class="article-context">
             <transition name="fade">
-                <div v-if="ifEdit" @click="switchFullScreen" class="article-fullscreen">
-                    <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
+                <div class="article-toolbar" v-if="ifEdit">
+                    <div @click="switchFullScreen" class="article-fullscreen">
+                        <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
+                    </div>
+                    <div class="article-media">
+                        <input type="file" @change="insertMedia()">
+                        <span @click="uploadFunction()">
+                            <svg class="icon" aria-hidden="true"><use :xlink:href="'#icon-upload'"></use></svg>
+                        </span>
+                    </div>
                 </div>
             </transition>
             <div class="article-editor" :contenteditable="ifEdit" :class="{'article-context-editing':ifEdit}">
@@ -34,6 +42,22 @@
         computed:{
         },
         methods:{
+            uploadFunction(){
+                console.log("in")
+                document.querySelector('.article-media>input').click()
+            },
+            insertMedia(){
+                document.querySelector('.article-editor').focus()
+                var fileinput= document.querySelector('.article-media>input')
+                var url = window.URL.createObjectURL(fileinput.files.item(0))
+                var fileext = fileinput.value.substr(fileinput.value.lastIndexOf(".")).toLowerCase()
+                if(fileext.match(/\.(png|jpe?g|gif|svg)(\?.*)?$/)){
+                    document.execCommand('insertHTML',false,"<img style='display:inline' src='"+url+"'/>")
+                }
+                else if(fileext.match(/\.(mp3|wma|ogg|acc)(\?.*)?$/)){
+                    document.execCommand('insertHTML',false,"<p><audio style='display:inline;user-select:inhert' controls='controls' src='"+url+"'>哇塞！音乐播放器</audio></p>")
+                }
+            },
             highlight(){
 
             },
@@ -65,7 +89,7 @@
             }
         },
         mounted(){
-            var editor = new MediumEditor('.article-editor',this.editorConfig)
+            this.editor = new MediumEditor('.article-editor',this.editorConfig)
             document.querySelector(".article-editor").setAttribute("contenteditable",this.ifEdit)
             hljs.initHighlighting();
         },
@@ -111,7 +135,27 @@
 <style>
     @import url('../../node_modules/medium-editor/dist/css/medium-editor.css');
     @import url('../../node_modules/medium-editor/dist/css/themes/default.css');
+    
     .article{
+    }
+    .article-toolbar{
+        position:absolute;
+        top:0;
+        right:0;
+    }
+    .article-media{
+        position: absolute;
+        top:1em;
+        right: 2em;
+        font-size: 1.5em;
+        color: rgba(181, 64, 16, 0.2);
+        transition: all 0.5s
+    }
+    .article-media:hover{
+        color: rgba(181, 64, 16, 0.5);
+    }
+    .article-media>input{
+        display:none;
     }
     .edit-button{
         font-size: 1.4em;
@@ -201,10 +245,6 @@
         transition: all 0.5s
     }
     .article-fullscreen:hover{
-        position: absolute;
-        top:1em;
-        right: 1em;
-        font-size: 1.5em;
         color: rgba(181, 64, 16, 0.5);
         transition: all 0.5s
     }
