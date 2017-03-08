@@ -55,7 +55,7 @@
                     document.execCommand('insertHTML',false,"<img style='display:inline' src='"+url+"'/>")
                 }
                 else if(fileext.match(/\.(mp3|wma|ogg|acc)(\?.*)?$/)){
-                    document.execCommand('insertHTML',false,"<p><audio style='display:inline;user-select:inhert' controls='controls' src='"+url+"'>哇塞！音乐播放器</audio></p>")
+                    document.execCommand('insertHTML',false,"<p><br></p><p><audio style='display:inline;user-select:inhert' controls='controls' src='"+url+"'><br></audio></p><p><br></p>")
                 }
             },
             highlight(){
@@ -102,6 +102,7 @@
                 ifEdit: (document.URL).split("#")[1] == "edit" ? true : false,
                 editorConfig:{
                         activeButtonClass: 'medium-editor-button-active',
+                        allowMultiParagraphSelection: true,
                         buttonLabels: false,
                         contentWindow: window,
                         delay: 0,
@@ -137,6 +138,9 @@
     @import url('../../node_modules/medium-editor/dist/css/themes/default.css');
     
     .article{
+        overflow:auto;
+        width:100%;
+        height:100%;
     }
     .article-toolbar{
         position:absolute;
@@ -160,6 +164,10 @@
     .edit-button{
         font-size: 1.4em;
         transition:all 0.5s;
+        background: none;
+        border: none;
+        padding:0;
+        outline: none;
     }
     .edit-button-edit{
         color:rgba(181, 64, 16, 0.15);

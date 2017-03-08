@@ -28,9 +28,8 @@ body,html{
 }
 #app {
   height: 100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   filter: blur(8px);    
   transition: filter 1.6s linear;

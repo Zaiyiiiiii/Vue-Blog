@@ -5,7 +5,7 @@
     </dt>
     <dd>
       <div class="dd-content">
-        <img src="../../img/ht-pink.png" style="vertical-align: sub; width: 16px; padding-right: 10px; border-right: 1px solid #ccc"/>
+        <img src="/static/img/ht-pink.png" style="vertical-align: sub; width: 16px; padding-right: 10px; border-right: 1px solid #ccc"/>
         <button v-if="editable" @click="edit(article.id)" class="btn">编辑</button>
         <button @click="showComment" class="btn">评论个数(<i class="font-color-gr">1</i>)</button>
         <span class="margin-rt10">作者：{{article.author}}</span>
