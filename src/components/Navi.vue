@@ -94,6 +94,9 @@
     .navi-is-bar{
         background: transparent!important;
         font-size: 24px;
+        /*box-shadow: 0px 7px 3px -3px rgba(200, 200, 80, 0.1);
+        border-bottom: 1px solid rgba(220, 80, 80, 0.3)*/
+        /*导航条的阴影，先删了~*/
     }
     .navi-is-bar a,.route-active{
         border-bottom: 3px solid rgba(0,0,0,0);

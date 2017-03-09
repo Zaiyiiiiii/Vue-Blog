@@ -26,16 +26,17 @@
         position: relative;
         display:flex;
         flex-direction:column;
-        padding: 10px 0;
+        padding: 50px 0 10px 0;
         text-align: left;
-        border-bottom: 1px dotted rgba(50, 50, 50, 0.8) 
+        border-bottom: 1px dotted rgba(50, 50, 50, 0.8);
     }
     .articlelist-item:hover{
     }
     .articlelist-title,.articlelist-title:visited{
         color: rgba(0, 0, 0, 1.0);
         text-decoration: none;
-        font-size: 24px;
+        font-size: 22px;
+        font-weight: bold;
         line-height: 1.4em;
     }
     .articlelist-brif{

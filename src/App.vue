@@ -34,7 +34,7 @@ body,html{
   filter: blur(8px);    
   transition: filter 1.6s linear;
   pointer-events: none;
-  transition:margin 1s;
+  transition:margin 1s,visibility 1s;
 }
 #app,.main,body{
     position: relative;
@@ -48,7 +48,12 @@ body,html{
   margin-left:-100%;
   width:100%;
 }
+.app-to-left .navi{
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 ul{
   padding: 0;
+  list-style: none;
 }
 </style>

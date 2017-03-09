@@ -13,12 +13,12 @@
       </ul>
     </div>
     <ul class="blog-title">
-        <span v-if="isLogin" class="blog-new">
-            <router-link :to="'/blog/publish'">
-                新
-            </router-link>
-        </span>
-        <div>
+        <div class="blog-list-wrapper">
+            <span v-if="isLogin" class="blog-new">
+                <router-link :to="'/blog/publish'">
+                    新
+                </router-link>
+            </span>
             <li v-for="article in articles">
                 <article-list-item :article="article" :editable="isLogin"></article-list-item>
             </li>
@@ -103,21 +103,25 @@
         justify-content: center;
     }
     .blog-sort{
-        box-shadow: -17px 0 8px -14px rgba(220,220,80,0.2) inset;
         display: flex;
         flex-direction: column;
         flex:1.5 0 0px;
         padding-top: 40px;
         z-index: 0;
         background-color:rgba(254, 254, 254, 0.1);
-        border-right:1px dotted rgba(0,0,0,0.5);
         font-family:'JuzhenFang90f7448985259';
         font-size: 24px;
         overflow: hidden;
     }
     .blog-title{
         flex:3.5 0 0px;
-        padding:0 40px;
+    }
+    .blog-list-wrapper{
+        margin-top: 20px;
+        box-shadow: 0 18px 8px 6px rgba(220,220,80,0.2);
+        border: 1px solid rgba(200, 80, 80, 0.05);
+        padding:0 60px;
+        border-top-left-radius: 0.8em;
         position: relative;
     }
     .blog-new{
@@ -125,11 +129,28 @@
         top: 0;
         left: 0;
         color:#fff;
-        width: 4em;
-        height: 4em;
+        width: 3.6em;
+        height: 3.6em;
         background: linear-gradient(-45deg,rgba(0,0,0,0) 50%,rgba(250, 82, 0,0.7) 50%);
         text-align: left;
-        border-top-left-radius: 0.5em;
+        transition: all 0.5s;
+    }
+    @keyframes shake{
+        0%{
+            transform:rotateZ(-35deg)
+        }
+        25%{
+            transform:rotateZ(35deg)
+        }
+        50%{
+            transform:rotateZ(-35deg)
+        }        
+        75%{
+            transform:rotateZ(35deg)
+        }
+        100%{
+            transform:rotateZ(-35deg)
+        }
     }
     .blog-new>a{
         position: relative;
@@ -139,6 +160,9 @@
         font-size: 1.4em;
         text-decoration: none;
         color: currentColor;        
+    }
+    .blog-new:hover{
+        animation: shake 1s infinite;
     }
     .blog-title>div{
         max-width: 800px;
