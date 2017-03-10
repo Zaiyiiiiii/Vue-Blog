@@ -1,34 +1,41 @@
 <template>
+  <div class="article-detail">
     <div class="article" keep-alive>
-        <button class="edit-button" :class="ifEdit?'edit-button-edit':'edit-button-save'" @click="switchEdit()">
-            <svg class="icon" aria-hidden="true"><use :xlink:href="ifEdit?'#icon-save':'#icon-edit'"></use></svg>
-        </button>
-        <div class="article-title-contianer">
-        <div class="article-title" v-if="!ifEdit">{{title}}</div>
-        <input class="article-title" v-else v-model="title"></input>
-        <svg>
-            <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0"
-                />
+      <button class="edit-button" :class="ifEdit?'edit-button-edit':'edit-button-save'" @click="switchEdit()">
+        <svg class="icon" aria-hidden="true">
+          <use :xlink:href="ifEdit?'#icon-save':'#icon-edit'"></use>
         </svg>
-        </div>
-        <div class="article-context">
-            <transition name="fade">
-                <div class="article-toolbar" v-if="ifEdit">
-                    <div @click="switchFullScreen" class="article-fullscreen">
-                        <svg class="icon" aria-hidden="true"><use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use></svg>
-                    </div>
-                    <div class="article-media">
-                        <input type="file" @change="insertMedia()">
-                        <span @click="uploadFunction()">
+      </button>
+      <div class="article-title-contianer">
+        <div class="article-title" v-if="!ifEdit">{{title}}</div>
+        <input class="article-title" v-else v-model="title"/>
+        <svg>
+          <rect class="article-title-border" :class="{'article-title-border-edit':ifEdit}" x="0" y="0"
+          />
+        </svg>
+      </div>
+      <div class="article-context">
+        <transition name="fade">
+          <div class="article-toolbar" v-if="ifEdit">
+            <div @click="switchFullScreen" class="article-fullscreen">
+              <svg class="icon" aria-hidden="true">
+                <use :xlink:href="fullScreenState?'#icon-fullscreen':'#icon-fullscreen1'"></use>
+              </svg>
+            </div>
+            <div class="article-media">
+              <input type="file" @change="insertMedia()">
+              <span @click="uploadFunction()">
                             <svg class="icon" aria-hidden="true"><use :xlink:href="'#icon-upload'"></use></svg>
                         </span>
-                    </div>
-                </div>
-            </transition>
-            <div class="article-editor" :contenteditable="ifEdit" :class="{'article-context-editing':ifEdit}">
+            </div>
+          </div>
+        </transition>
+        <div class="article-editor" :contenteditable="ifEdit" :class="{'article-context-editing':ifEdit}">
         </div>
-        </div>
+      </div>
     </div>
+    <comment-box class="slide-from-right"></comment-box>
+  </div>
 </template>
 <script>
     import * as MediumEditor from 'medium-editor'
@@ -37,8 +44,14 @@
     // document.body.appendChild(b)
     import * as AutoList from '../../static/autolist.min.js'
     import * as MediumButton from 'medium-button'
+    import CommentBox from "components/CommentBox.vue"
+
     var autolist = new AutoList();
+
     export default{
+        components: {
+          "comment-box": CommentBox
+        },
         computed:{
         },
         methods:{
@@ -132,11 +145,17 @@
             }
         }
     }
+
 </script>
 <style>
     @import url('../../node_modules/medium-editor/dist/css/medium-editor.css');
     @import url('../../node_modules/medium-editor/dist/css/themes/default.css');
-    
+
+    .article-detail {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
     .article{
         overflow:auto;
         width:100%;
@@ -195,8 +214,6 @@
         pointer-events: none;
         border-radius: 4px 4px 4px 0;
     }
-
-
     .article-title-border{
         width: 100%;
         height: 100%;
@@ -263,6 +280,18 @@
         margin: 0px;
     }
 
+    .slide-from-right{
+       height: 600px;
+       position: absolute;
+       right: 0;
+       top: 100px;
+       transition: right 0.3s ease-out;
+    }
+
+    .slide-from-right:hover{
+       right: 0;
+    }
+
     html:-webkit-full-screen .site-title,html:-webkit-full-screen .navi{
         display: none;
     }
@@ -275,4 +304,5 @@
     html:-webkit-full-screen .article-context{
         margin-bottom: 300px;
     }
+
 </style>
