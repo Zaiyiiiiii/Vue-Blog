@@ -9,7 +9,7 @@
     </transition>
     <h1 class="site-title" :class="{'site-title-main':$route.path=='/'}"><span v-for="word in msg.split(' ')">{{' '+word+' '}}</span>
     </h1>
-    <navi :isBar="$route.path!='/'" :items="naviData"></navi>
+    <navi :isBar="$route.path!='/'" :items="naviData" ></navi>
     <div class="component-container">
       <transition name="fade">
         <router-view></router-view>
@@ -31,11 +31,21 @@
     data() {
       return {
         naviData: [
-          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/LanternSale_ZH-CN13256517653_1920x1080.jpg)',hoverColor:"orange",textColor:"#A64B00",hoverText:"强识而让，敦善行而不怠。", link: '/blog' },
-          { name: '我们', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/JavaSparrow_ZH-CN10576911084_1920x1080.jpg)',hoverColor:"brown",textColor:"#FFB140",hoverText:"嘿嘿嘿", link: '/us'}
+          { name: '博文', hoverBackground: 'url(//cn.bing.com/az/hprichbg/rb/Dongdaemun_ZH-CN10736487148_1920x1080.jpg)',hoverColor:"rgba(255,197,100,0.4)",textColor:"rgba(246,210,0,1)", link: '/blog' },
+          { name: '我们', hoverBackground: 'url(/static/img/us.jpg)',hoverColor:"rgba(145,42,42,0.6)",textColor:"#FFB140", link: '/us'}
         ],
         msg: 'Wang & Sha'
       }
+    },
+    computed:{      
+        currentRouteItem(){
+            for(var item in this.naviData){
+                if(this.naviData[item].link==this.$route.matched[1].path){
+                    return this.naviData[item]
+                }
+            }
+            return {hoverColor:"#fff"}
+        }
     }
   }
 
@@ -55,7 +65,8 @@
     transition: all 1s;
     position: relative;
     top:0;
-    color:rgba(20, 10, 20, 0.9);
+    /*color:rgba(20, 10, 20, 0.9);*/
+    color:rgba(255,250,255,0.85);
     padding-right: 0.5em;
     margin-top: 30px;
   }

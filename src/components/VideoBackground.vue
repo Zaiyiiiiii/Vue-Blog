@@ -23,14 +23,13 @@
         width: auto; 
         height: auto;
         overflow: hidden;
-        filter:sepia(0.8)
     }
 </style>
 <script>
     export default {
         computed:{
             todayVideoSrc(){
-                return "http://olg2tqiyk.bkt.clouddn.com//blog/video/AntarcticPenguinChicks_GettyRR_117721427-768_EN-US.mp4";
+                return "http://olg2tqiyk.bkt.clouddn.com//blog/video/ArcticSunriseNorway_GettyRF_166536800_1080_HD_ZH-CN.mp4";
             }
         }
     }
