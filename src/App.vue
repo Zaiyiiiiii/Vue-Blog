@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style>
+body{
+    transition: background 0.5s;
+}
 body,html{
   padding: 0;
   margin: 0;

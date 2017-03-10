@@ -19,6 +19,7 @@
         font-size: 1.3em;
         color: rgba(255, 255, 255, 0.5);
         cursor: pointer;
+        z-index: 5;
     }
     .loginbox-round{
         border-radius: 50%;
